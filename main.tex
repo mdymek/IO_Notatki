@@ -7,6 +7,8 @@
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{booktabs}
 \usepackage{lmodern}
 \usepackage[MeX]{polski}
 \usepackage[T1]{fontenc}
@@ -1197,12 +1199,10 @@
 
     \subsection{Koncepcje specyfikowania interfejsów}
     \begin{itemize}
-        \item implementator (realize class), ekstender (refine class) i użytkownik (use class) klasy;
-        \item typy, sygnatury (wektory/krotki typów parametrów i typu wyniku) i widzialność (public, private, protected, packet);
-        \item kontrakty: niezmienniki, warunki wstępne i warunki końcowe;
-        \item język OCL (Object Constraint Language) – ograniczenia
-        \item OCL – zbiory, wielozbiory i ciągi;
-        \item kwantyfikatory OCL;
+        \item implementator (realize class), ekstender (refine class) i użytkownik (use class) klasy,
+        \item typy, sygnatury (wektory/krotki typów parametrów i typu wyniku) i widzialność (public, private, protected, packet),
+        \item kontrakty: niezmienniki, warunki wstępne i warunki końcowe,
+        \item język OCL (Object Constraint Language) – ograniczenia, zbiory, wielozbiory i ciągi; kwantyfikatory.
     \end{itemize}
 
     \subsection{Aktywności specyfikowania interfejsów}
@@ -1217,413 +1217,317 @@
 
     \subsection{SOLID}
 
-
-    \begin{tabular}{|c|c|}
-        \hline
-        S & Single responsibility principle\\
-        & Klasa powinna mieć pojedyńczą
-        odpowiedzialność.\\
-        \hline
-        O & Open/closed principle\\
-        & Software powinien być otwarty na
-        rozszerzenia a zamknięty na modyfikacje.\\
-        \hline
-        L & Liskov substitution principle\\
-        \hline
-        I & Interface segregation principle\\
-        & Kilka konkretnych interfejsów jest lepszych
-        niż jeden ogólny\\
-        \hline
-        D & Dependency inversion principle\\
-        & Software powinien zależeć od abstrakcji a
-        nie od konkretyzacji.\\
-        \hline
-    \end{tabular}
-
-    \subsubsection{Single Resposibility Principle - SRP}
     \begin{itemize}
-        \item Nigdy nie powinien istnieć więcej niż jeden powód do modyfikacji klasy.
-        \item Im mniejsza i bardziej wyspecyfikowana klasa tym łatwiej ją nazwać.
-        \item Łatwiejsze wprowadzanie zmian.
-        \item Łatwiejsze testowanie i naprawa
+        \item \textbf{Single responsibility principle}
+        \begin{itemize}
+            \item Klasa powinna mieć pojedyńczą odpowiedzialność.
+            \item Nigdy nie powinien istnieć więcej niż jeden powód do modyfikacji klasy.
+            \item Im mniejsza i bardziej wyspecyfikowana klasa tym łatwiej ją nazwać.
+            \item Łatwiejsze wprowadzanie zmian,testowanie i naprawa
+        \end{itemize}
+        Jak rozpoznać naruszenie SRP?
+        \begin{itemize}
+            \item Ilość linii kodu ( Class:LOC > 250),
+            \item Za dużo zależności, słaba spojność, dużo zagnieżdżeń,
+            \item Opis lub nazwa wymaga “i”,
+            \item Wymaga skomplikowanych testów,
+            \item Modyfikacja może zepsuć inne testy.
+        \end{itemize}
+        \item \textbf{Open/closed principle}
+        \begin{itemize}
+            \item klasa powinna być otwarta na rozbudowę, ale zamknięta do jej własnej modyfikacji,
+            \item możemy dodawać nowe pola i metody, ale bez zmiany w wewnętrznej strukturze,
+            \item zmiana istniejącej struktury może mieć wpływ na inne elementy,
+            \item hermetyzacja, dziedziczenie, polimorfizm, delegaty,
+            \item unikamy instrukcji warunkowych.
+        \end{itemize}
+        \item \textbf{Liskov substitution principle}
+        \begin{itemize}
+            \item 'Jeśli obiekt klasy S może stać się substytutem obiektu klasy T w
+            dowolnym miejscu kodu, w którym oczekiwany jest obiekt klasy T, to klasa S jest podtypem klasy T.'
+        \end{itemize}
+        \item \textbf{Interface segregation principle}
+        \begin{itemize}
+            \item Kilka konkretnych interfejsów jest lepszych niż jeden ogólny,
+            \item Związki między klasami powinny być ograniczone do minimum,
+            \item Klient klasy powinien mieć dostep tylko do tyh składowych klasy, których rzeczywiście potrzebuje,
+            \item Moduły wysokiego poziomu nie powinny zależeć od modułów niskopoziomowych,
+            \item Obie grupy modułów powinny zależeć od abstrakcji.
+        \end{itemize}
+        \item \textbf{Dependency inversion principle} - zasada odwracania zależności.
+        \begin{itemize}
+            \item Software powinien zależeć od abstrakcji a nie od konkretyzacji,
+            \item 'Hollywood Principle' - don't call us, we'll call you!.
+        \end{itemize}
     \end{itemize}
 
-    Jak rozpoznać naruszenie SRP?
-    \begin{itemize}
-        \item Ilość linii kodu ( Class:LOC > 250)
-        \item Za dużo
-        zależności
-        \item Słaba spojność
-        \item Opis lub nazwa wymaga “i”
-        \item Dużo zagnieżdżeń (ifów)
-        \item Wymaga skomplikowanych testów
-        \item Modyfikacja może zepsuć inne testy
-    \end{itemize}
-
-
-
-    \subsubsection{Zasada otwarte-zamknięte}
-    \begin{itemize}
-        \item klasa powinna być otwarta na rozbudowę, ale zamknięta do jej własnej modyfikacji
-        \item możemy dodawać nowe pola i metody, ale bez zmiany w wewnętrznej strukturze
-        \item zmiana istniejącej struktury może mieć wpływ na inne elementy
-        \item hermetyzacja, dziedziczenie, polimorfizm, delegaty
-        \item unikamy instrukcji warunkowych
-    \end{itemize}
-
-    \subsubsection{Zasada segregacji interfejsów}
-    \begin{itemize}
-        \item Związki między klasami powinny być ograniczone do minimum
-        \item Klient klasy powinien mieć dostep tylko do tyh składowych klasy,
-        których rzeczywiście potrzebuje
-        \item Moduły wysokiego poziomu nie powinny
-        zależeć od modułów niskopoziomowych.
-        \item Obie grupy modułów powinny zależeć od
-        abstrakcji
-    \end{itemize}
-
-    \subsubsection{Zasada odwracania zależności}
-    'Hollywood Principle' - don't call us, we'll call you!
 
     \subsection{Wybrane wzorce kreacyjne}
 
-    \subsubsection{Singleton}
-    Cel:
-    \begin{itemize}
-        \item Zapewnienie, że klasa posiada jedną instancję wewnątrz całej aplikacji
-        \item Stworzenie punktu dostępowego do tej instancji
-    \end{itemize}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{  p{8cm} c  }
+                \toprule
+                Wzorzec & Schemat \\
 
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{singleton.png}
-    \end{figure}
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Singleton}
+                \begin{itemize}
+                    \item Zapewnienie, że \textbf{klasa posiada jedną instancję} wewnątrz całej aplikacji
+                    \item Stworzenie punktu dostępowego do tej instancji
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{singleton.png}}
+                \\
 
-    \subsubsection{Factory method}
-    Cel:
-    \begin{itemize}
-        \item Zdefiniowanie interfejsu do tworzenia obiektów
-        \item Umożliwienie przekazania odpowiedzialności za tworzenie obiektów
-        do podklas
-        \item Umożliwienie wyboru klasy i konstruktora użytego do utworzenia
-        obiektu
-    \end{itemize}
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Factory method}
+                \begin{itemize}
+                    \item Zdefiniowanie \textbf{interfejsu do tworzenia obiektów}
+                    \item Umożliwienie przekazania odpowiedzialności za tworzenie obiektów do podklas
+                    \item Umożliwienie wyboru klasy i konstruktora użytego do utworzenia obiektu
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{fac-met.png}}
+                \\
 
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{fac-met.png}
-    \end{figure}
-
-
-    \subsubsection{Builder}
-    Cel:
-    \begin{itemize}
-        \item Odseparowanie sposobu reprezentacji i metody konstrukcji
-        złożonych struktur obiektowych
-        \item Wykorzystanie jednego mechanizmu konstrukcyjnego do tworzenia
-        struktur o różnej reprezentacji
-    \end{itemize}
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Builder}
+                \begin{itemize}
+                    \item \textbf{Odseparowanie sposobu reprezentacji i metody konstrukcji} złożonych struktur obiektowych
+                    \item Wykorzystanie jednego mechanizmu konstrukcyjnego do tworzenia struktur o różnej reprezentacji
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{builder.png}}
+                \\
 
 
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{builder.png}
-    \end{figure}
-
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{table}
 
 
     \subsection{Wybrane wzorce strukturalne}
 
-    \subsubsection{Adapter}
-    Cel:
-    \begin{itemize}
-        \item Umożliwia współprace obiektów o niezgodnych typach
-        \item Tłumaczy protokoły obiektowe
-    \end{itemize}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{  p{8cm} c  }
+                \toprule
+                Wzorzec & Schemat \\
 
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{adapter.png}
-    \end{figure}
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Adapter}
+                \begin{itemize}
+                    \item Umożliwia \textbf{współpracę obiektów o niezgodnych typach}
+                    \item Tłumaczy protokoły obiektowe
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{adapter.png}}
+                \\
 
-    \subsubsection{Proxy}
-    Cel:
-    \begin{itemize}
-        \item Dostarcza zamiennik obiektu w celu jego kontroli i ochrony
-        \item Przezroczyste odsuniecie inicjalizacji obiektu w czasie
-    \end{itemize}
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
 
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{proxy.png}
-    \end{figure}
+                \textbf{Proxy}
+                \begin{itemize}
+                    \item Dostarcza \textbf{zamiennik obiektu} w celu jego kontroli i ochrony
+                    \item Przezroczyste odsuniecie inicjalizacji obiektu w czasie
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{proxy.png}}
+                \\
 
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Fasada}
+                \begin{itemize}
+                    \item Dostarczenie \textbf{jednorodnego interfejsu wyższego poziomu} do zbioru różnych interfejsów w systemie
+                    \item Ukrycie złożoności podsystemów przed klientem
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{fasada.png}}
+                \\
 
-
-    \subsubsection{Fasada}
-    Cel:
-    \begin{itemize}
-        \item Dostarczenie jednorodnego interfejsu wyższego poziomu do zbioru
-        rośnych interfejsów w systemie
-        \item Ukrycie złożoności podsystemów przed klientem
-    \end{itemize}
-
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{fasada.png}
-    \end{figure}
-
-
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{table}
 
 
     \subsection{Wybrane wzorce behawioralne}
 
-    \subsubsection{Obserwator}
-    \begin{itemize}
-        \item Tworzy zależność typu jeden-wiele pomiędzy obiektami
-        \item Informacja o zmianie stanu wyróżnionego obiektu jest przekazywana
-        wszystkim pozostałym obiektom
-    \end{itemize}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{  p{8cm} c  }
+                \toprule
+                Wzorzec & Schemat \\
 
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{obserwator.png}
-    \end{figure}
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Obserwator}
+                \begin{itemize}
+                    \item Tworzy \textbf{zależność typu jeden-wiele} pomiędzy obiektami
+                    \item \textbf{Informacja o zmianie} stanu wyróżnionego obiektu jest \textbf{przekazywana wszystkim pozostałym obiektom}
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{obserwator.png}}
+                \\
 
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Command}
+                \begin{itemize}
+                    \item \textbf{Hermetyzacja poleceń} do wykonania w postaci obiektów
+                    \item Umożliwienie \textbf{parametryzacji klientów} obiektami poleceń
+                    \item Wsparcie dla \textbf{poleceń odwracalnych}
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{command.png}}
+                \\
 
-    \subsubsection{Command}
-    \begin{itemize}
-        \item Hermetyzacja poleceń do wykonania w postaci obiektów
-        \item Umożliwienie parametryzacji klientów obiektami poleceń
-        \item Wsparcie dla poleceń odwracalnych
-    \end{itemize}
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Chain of responsibility}
+                \begin{itemize}
+                    \item \textbf{Usunięcie powiązania pomiędzy nadawcą i odbiorcą} żądania
+                    \item Umożliwienie wielu obiektom obsługi żądania
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{ch-o-r.png}}
+                \\
 
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{command.png}
-    \end{figure}
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Iterator}
+                \begin{itemize}
+                    \item Umożliwienie \textbf{sekwencyjnego dostępu} do elementów kolekcji bez ujawniania jej wewnętrznej implementacji
+                \end{itemize}
+                &
+                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth, height=60mm]{iterator.png}}
+                \\
 
-
-    \subsubsection{Chain of responsibility}
-    Cel:
-    \begin{itemize}
-        \item  Usunięcie powiązania pomiędzy nadawcą i odbiorcą żądania
-        \item Umożliwienie wielu obiektom obsługi żądania
-    \end{itemize}
-
-
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{ch-o-r.png}
-    \end{figure}
-
-
-    \subsubsection{Iterator}
-    Cel:
-    \begin{itemize}
-        \item Umożliwienie sekwencyjnego dostępu do elementów kolekcji bez
-        ujawniania jej wewnętrznej implementacji
-    \end{itemize}
-
-
-
-
-
-    \begin{figure}[H]
-        \includegraphics[width=\linewidth]{iterator.png}
-    \end{figure}
-
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{table}
 
 
     \subsection{Implementacja wzorców projektowych}
-    Implementacja to transformowanie modelu w kod źródłowy.
-
-
+    Implementacja to \textbf{transformowanie modelu w kod źródłowy}.
 
     \begin{figure}[H]
         \includegraphics[width=\linewidth]{wzorce.png}
     \end{figure}
 
-    Transformacje te wykonywane są w ramach następujących
-    aktywności:
+    \subsubsection{Transformacja}
     \begin{itemize}
-        \item optymalizowanie modelu
-        \item realizowanie skojarzeń
-        \item definiowanie wyjątków związanych z naruszeniem kontraktów
-        \item odwzorowywane modeli klas w schematy przechowywania danych
+        \item powinna dotyczyć tylko jednego, ściśle określonego kryterium,
+        \item musi mieć charakter lokalny, powinna być izolowana od innych zmian,
+        \item musi być poddana weryfikacji.
     \end{itemize}
 
-    Zasady transformacji:
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{8cm} p{8cm} }
+            \item \textbf{Transformacja modelu}
+            \begin{itemize}
+                \item ograniczona jest do samego modelu
+                \item celem jest uproszczenie lub zoptymalizowanie istniejącego modelu
+            \end{itemize}
+            &
+            \item \textbf{Inżynieria postępująca}
+            \begin{itemize}
+                \item tworzenie szablonów kodu źródłowego odpowiadającego modelowi obiektowemu
+            \end{itemize}\\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \textbf{Najczęściej wykonywane} aktywności (transformacje):
     \begin{itemize}
-        \item każda transformacja powinna dotyczyć tylko jednego,
-        ściśle określonego kryterium;
-        \item każda transformacja musi mieć charakter lokalny;
-        \item każda transformacja powinna być izolowana od
-        innych zmian;
-        \item każda transformacja musi być poddana weryfikacji;
-    \end{itemize}
-
-
-    Najczęściej wykonywane aktywności (transformacje):
-    \begin{itemize}
-        \item optymalizowanie modelu obiektowego;
-        \item odwzorowywanie skojarzeń w kolekcje;
-        \item odwzorowywanie kontraktów w wyjątki;
-        \item odwzorowywanie modelu obiektowego w schematy
-        bazy danych;
-    \end{itemize}
-
-    Typy transformacji
-    \begin{itemize}
-        \item Transformacja modelu
-        \begin{itemize}
-            \item ograniczona jest do samego modelu
-            \item celem jest uproszczenie lub zoptymalizowanie istniejącego modelu
-        \end{itemize}
-        \item Inżynieria postępująca
-        \begin{itemize}
-            \item tworzenie szablonów kodu źródłowego odpowiadającego modelowi obiektowemu
-        \end{itemize}
-    \end{itemize}
-
-    \subsubsection{Paradygmaty programowania}
-
-    Paradygmat:
-    \begin{itemize}
-        \item wzorzec lub najogólniejszy
-        model lub jako wzorcowy przykład.
-        \item zbiór pojęć i teorii tworzących podstawy danej nauki.
+        \item \textbf{optymalizowanie modelu} obiektowego,
+        \item odwzorowywanie \textbf{skojarzeń w kolekcje},
+        \item odwzorowywanie \textbf{kontraktów w wyjątki},
+        \item odwzorowywanie modelu obiektowego w \textbf{schematy bazy danych}.
     \end{itemize}
 
 
-    Podstawowe założenia paradygmatu:
+    \subsubsection{Paradygmat programowania}
     \begin{itemize}
-        \item Abstrakcja\\
-        System rozumiany jest jako układ obiektów . Każdy
-        obiekt w systemie można rozpatrywać jako model
-        abstrakcyjnego elementu, który może:
+        \item wzorzec, \textbf{najogólniejszy model}, jako wzorcowy przykład,
+        \item \textbf{zbiór pojęć} i teorii tworzących \textbf{podstawy} danej nauki.
+    \end{itemize}
+
+
+    \textbf{Podstawowe założenia}:
+    \begin{itemize}
+        \item \textbf{Abstrakcja} - system jako układ obiektów rozpatrywanych jako modele
+        abstrakcyjnego elementu, które mogą:
         \begin{itemize}
             \item opisywać i zmieniać swój stan,
             \item komunikować się z innymi obiektami w systemie,
-            \item wykonywać pewne czynności na rzecz innych obiektów,
-            \item bez ujawniania, w jaki sposób zaimplementowano
+            \item wykonywać pewne czynności na rzecz innych obiektów bez ujawniania, w jaki sposób zaimplementowano
             dane cechy.
         \end{itemize}
-        \item Enkapsulacja\\
+        \item \textbf{Enkapsulacja}
         \begin{itemize}
-            \item Polega na ukrywaniu szczegółów implementacji.
-            \item Ma to spowodować, że obiekt nie może zmieniać
-            stanu wewnętrznego innych obiektów w
-            nieoczekiwany sposób.
-            \item Tylko wewnętrzne metody obiektu są uprawnione
-            do zmiany jego stanu.
-            \item Każdy typ obiektu dostarcza innym obiektom swój
-            "interfejs", który określa dopuszczalne metody współpracy.
+            \item ukrywanie szczegółów implementacji,
+            \item obiekt nie może zmieniać stanu wewnętrznego innych obiektów w nieoczekiwany sposób,
+            \item tylko wewnętrzne metody obiektu są uprawnione do zmiany jego stanu,
+            \item każdy typ obiektu dostarcza innym obiektom swój "interfejs", który określa dopuszczalne metody współpracy.
         \end{itemize}
-        \item Polimorfizm\\
+        \item \textbf{Polimorfizm}
         \begin{itemize}
-            \item Polimorfizm w programowaniu obiektowym to
-            wykazywanie różnych form działania podczas
-            wywoływania metody w zależności od tego jakiego
-            typu obiekt jest wskazywany przez wskaźnik lub
-            referencję.
-            \item Referencje i kolekcje obiektów mogą dotyczyć
-            obiektów różnego typu, a wywołanie metody dla
-            referencji spowoduje zachowanie odpowiednie dla
-            pełnego typu obiektu wywoływanego.
+            \item wykazywanie różnych form działania podczas wywoływania metody w zależności od typu obiektu,
+            \item referencje i kolekcje obiektów mogą dotyczyć obiektów różnego typu, a wywołanie metody dla
+            referencji spowoduje zachowanie odpowiednie dla pełnego typu obiektu wywoływanego.
         \end{itemize}
-        \item Dziedziczenie\\
+        \item \textbf{Dziedziczenie}
         \begin{itemize}
-            \item Dziedziczenie porządkuje i wspomaga polimorfizm i
-            enkapsulację.
-            \item Osiąga to dzięki umożliwieniu definiowania i
-            tworzenia specjalizowanych obiektów na podstawie
-            bardziej ogólnych.
-            \item Dla obiektów specjalizowanych nie trzeba
-            redefiniować całej funkcjonalności, lecz tylko tę,
+            \item porządkuje i wspomaga polimorfizm i enkapsulację,
+            \item umożliwia definiowanie i tworzenie specjalizowanych obiektów,
+            \item dla obiektów specjalizowanych nie trzeba redefiniować całej funkcjonalności, lecz tylko tę,
             której nie mają obiekty ogólniejsze.
         \end{itemize}
     \end{itemize}
 
-    GRASP - General Responsibility Assignment Software Patterns odpowiada na pytania w zakresie odpowiedzialności.
+    \subsubsection{GRASP}
+    General Responsibility Assignment Software Patterns - zakres odpowiedzialności.
     \begin{itemize}
-        \item Creator - określa kiedy podany obiekt powinien tworzyć inny obiekt, tzn. B powinien tworzyć A, jeśli:
+        \item \textbf{Creator} - określa kiedy podany obiekt powinien tworzyć inny obiekt, tzn. B powinien tworzyć A, jeśli:
         \begin{itemize}
             \item B agreguje A,
             \item B operuje na danych obiektu A,
             \item B używa bezpośrednio A,
             \item B dostarcza informacji niezbędnej do utworzenia A
         \end{itemize}
-        \item Information Expert\\
-        Programista powinien delegować nową
-        odpowiedzialność (nowe funkcje) do obiektów, które
-        zawierają najwięcej informacji/danych
-        pozwalających zrealizować nową funkcjonalność.
-        Istotne jest więc określenie, jakie dane są niezbędne
-        do wypełnienia danej odpowiedzialności. Dopiero w
-        tym momencie można powiedzieć, który obiekt
-        powinien mieć przypisaną nową funkcjonalność
-        \item Controller\\
-        Programista powinien delegować zadania z interfejsu
-        użytkownika do kontrolera.
-        Zadaniem kontrolera jest: odbieranie informacji od UI,
-        wykonywanie operacji oraz zwracanie ich wyników
-        do UI. Kontroler powinien delegować zadania w głąb
-        systemu
-        \item Low Coupling\\
-        Klasy powinny być od siebie jak najbardziej
-        niezależne. Zmiana w jednej klasie powinna
-        prowadzić do jak najmniejszej ilości zmian w innych
-        klasach.
-        \item High Cohesion\\
-        Obiekt powinien skupiać się na jednej
-        odpowiedzialności. Jego odpowiedzialność nie
-        powinna być rozmyta, gdyż nie wiadomo
-        wtedy dlaczego obiekt istnieje w systemie
-        \item Polymorphism
-        \item Pure Fabrication\\
-        W systemie mogą istnieć operacje, których nie
-        da się przypisać do żadnego obiektu
-        dziedziny. Prowadzi to do powstawania w
-        systemie obiektów, które nie reprezentują
-        żadnego obiektu dziedziny, a kondensują
-        funkcje udostępniane na rzecz innych
-        obiektów.
-        Zapewniają zbiór usług na rzecz innych
-        obiektów, np.: dostęp do repozytorium.
-        \item Indirection\\
-        Aby zapewnić low coupling często zachodzi potrzeba
-        dodania mediatora w komunikacji między biektami.
-        Jego zadaniem jest jedynie wymiana informacji
-        między obiektami. Taki obiekt deleguje zadania z
-        jednego obiektu na rzecz drugiego. Projektowanie
-        systemu z użyciem mediatora wpływa na poprawę
-        hermetyzacji elementów systemu.
-        Model MVC jest dobrym tego przykładem astosowania
-        tej zasady. Kontroler jest mediatorem, co izoluje
+        \item \textbf{Information Expert} - określenie danych niezbędnych do wypełnienia nowej odpowiedzialności. Programista powinien delegować ją do obiektów, które
+        zawierają najwięcej informacji pozwalających ją zrealizować.
+        \item \textbf{Controller} - jego zadaniem jest: odbieranie informacji od UI, wykonywanie operacji oraz zwracanie ich wyników do UI.
+        Programista deleguje zadania z UI do kontrolera, a kontroler w głąb systemu.
+        \item \textbf{Low Coupling} - jak największa niezależność klas.
+        \item \textbf{High Cohesion} - obiekt powinien skupiać się na jednej odpowiedzialności, która powinna być jasna i nie rozmyta.
+        \item \textbf{Polymorphism}
+        \item \textbf{Pure Fabrication} - powstawania w systemie obiektów, które nie reprezentują
+        żadnego obiektu dziedziny, a kondensują funkcje udostępniane na rzecz innych obiektów.
+        \item \textbf{Indirection} - aby zapewnić low coupling często zachodzi potrzeba
+        dodania mediatora w komunikacji między biektami. Jego zadaniem jest jedynie wymiana informacji
+        między obiektami. Taki obiekt deleguje zadania z jednego obiektu na rzecz drugiego. Projektowanie
+        systemu z użyciem mediatora wpływa na poprawę hermetyzacji elementów systemu.
+        Model MVC jest dobrym tego przykładem astosowania tej zasady. Kontroler jest mediatorem, co izoluje
         interfejs użytkownika od modelu.
-        \item Protected variations\\
-        Zasada mówiąca o zakresie modyfikacji w systemie
-        wymaganym przez określoną zmianę. W systemie
-        powinno się identyfikować punkty niestabilności i
-        budować interfejsy wokół tych punktów.
-        To ograniczy zakres zmian w przypadku, gdyby
-        okazało się, że podany punkt niestabilności systemu
-        wymaga zmian.
+        \item \textbf{Protected variations} - zasada mówiąca o zakresie modyfikacji w systemie
+        wymaganym przez określoną zmianę. W systemie powinno się identyfikować punkty niestabilności i
+        budować interfejsy wokół tych punktów. To ograniczy zakres zmian w przypadku, gdyby
+        okazało się, że podany punkt niestabilności systemu wymaga zmian.
     \end{itemize}
 
 
-
-
     \subsubsection{Metazasady}
-
-
     \begin{itemize}
-        \item Don't repeat yourself - DRY\\
-        Jedno miejsce w systemie, na pojedynczą informację,
-        co ułatwia późniejsze zmiany.
-        Inna nazwa to Single Source Of Truth (SSOT), każda
-        informacja w systemie powinna być przechowywana
+        \item \textbf{Don't repeat yourself - DRY}\\
+        Jedno miejsce w systemie, na pojedynczą informację, co ułatwia późniejsze zmiany.
+        Inna nazwa to \textbf{Single Source Of Truth} (SSOT), każda informacja w systemie powinna być przechowywana
         dokładnie raz, bo ułatwia to jej modyfikację.
-        \item Keep it simple, stupid - KISS\\
-        W projektowaniu interfejsów powyższą zasadę można
-        nazwać zasadą najmniejszego zaskoczenia, czyli
-        fragment kodu powinien robić dokładnie to co ma
-        robić.
-        Czasem trzeba wybrać, czy dany fragment kodu
-        napisać z wykorzystaniem wzorca projektowego czy
-        prostej konstrukcji.
+        \item \textbf{Keep it simple, stupid - KISS}\\
+        W projektowaniu interfejsów powyższą zasadę można nazwać \textbf{zasadą najmniejszego zaskoczenia}, czyli
+        fragment kodu powinien robić dokładnie to co ma robić. Czasem trzeba wybrać, czy dany fragment kodu
+        napisać z wykorzystaniem wzorca projektowego czy prostej konstrukcji.
     \end{itemize}
 
 
