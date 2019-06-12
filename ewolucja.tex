@@ -274,7 +274,7 @@
 
     \begin{table}[H]
         \begin{center}
-            \begin{tabular}{ p{3cm} | p{4cm} | p{4cm} | p{4cm}}
+            \begin{tabular}{ p{2cm} | p{4cm} | p{4cm} | p{4cm}}
                 & \textbf{Program typu E} & \textbf{Program typu P} & \textbf{Program typu S}\\
                 & osadzony w rz\textbf{E}czywistości & rozwiązujący \textbf{P}roblem & oparty na \textbf{S}pecyfikacji\\
                 \toprule
@@ -315,6 +315,8 @@
                 stopniowo coraz mniej użyteczny.
                 \\
 
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
                 \textbf{Prawo wzrastającej złożoności}
                 &
                 Wraz z ewolucją
@@ -322,6 +324,9 @@
                 bardziej złożona. Pielęgnacja i upraszczanie struktury
                 wymagają dodatkowych nakładów.
                 \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
 
                 \textbf{Prawo samoregulacji}
                 &
@@ -332,6 +337,9 @@
                 dla każdego wydania.
                 \\
 
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
                 \textbf{Prawo organizacyjnej stabilności}
                 &
                 Tempo rozwoju
@@ -340,6 +348,9 @@
                 jego pielęgnacji nie wykorzystano właściwie informacji
                 zwrotnej.
                 \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
 
 
                 \textbf{Prawo zachowania przyzwyczajeń}
@@ -350,6 +361,9 @@
                 funkcji systemu wymaga czasu.
                 \\
 
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
                 \textbf{Prawo ciągłego wzrostu}
                 &
                 Funkcjonalność
@@ -358,12 +372,18 @@
                 poziomie.
                 \\
 
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
                 \textbf{Prawo spadku jakości}
                 &
                 Jakość oprogramowania spada,
                 o ile nie jest ono dostosowywane do zmian
                 zachodzących w swoim środowisku operacyjnym.
                 \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
 
                 \textbf{Prawo przyrostowego rozwoju}
                 &
@@ -389,16 +409,11 @@
     \subsubsection{Pielęgnacja oprogramowania}
     Cztery rodzaje aktywności:
     \begin{itemize}
-        \item \textbf{pielęgnacji doskonalącej} (ok. 50\%), która ma na celu
-        implementację nowych lub zmienionych wymagań
+        \item \textbf{pielęgnacji doskonalącej} (ok. 50\%) - implementacja nowych wymagań
         funkcjonalnych;
-        \item \textbf{pielęgnacji adaptacyjnej} (ok. 25\%), która dostosowuje
-        program do zmian zachodzących w środowisku;
-        \item \textbf{pielęgnacji naprawcze} (ok. 20\%), która służy usuwaniu
-        błędów z programu;
-        \item \textbf{prewencyjnej} (ok. 5\%), która polega na wewnętrznej
-        restrukturyzacji programu, co pozwala zmniejszyć
-        koszty pielęgnacji w przyszłości.
+        \item \textbf{pielęgnacji adaptacyjnej} (ok. 25\%) -  dostosowywanie do zmian zachodzących w środowisku;
+        \item \textbf{pielęgnacji naprawcze} (ok. 20\%) - usuwanie błędów
+        \item \textbf{prewencyjnej} (ok. 5\%) - restrukturyzacja wewnętrzna.
     \end{itemize}
 
     \textbf{Model kosztowy Boehma} - $AME = 1.0 * ACT * SDT$; AME - roczna pracochłonność związana

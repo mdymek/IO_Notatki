@@ -323,37 +323,50 @@
     \end{itemize}
 
 
-    \textbf{Podstawowe założenia}:
-    \begin{itemize}
-        \item \textbf{Abstrakcja} - system jako układ obiektów rozpatrywanych jako modele
-        abstrakcyjnego elementu, które mogą:
-        \begin{itemize}
-            \item opisywać i zmieniać swój stan,
-            \item komunikować się z innymi obiektami w systemie,
-            \item wykonywać pewne czynności na rzecz innych obiektów bez ujawniania, w jaki sposób zaimplementowano
-            dane cechy.
-        \end{itemize}
-        \item \textbf{Enkapsulacja}
-        \begin{itemize}
-            \item ukrywanie szczegółów implementacji,
-            \item obiekt nie może zmieniać stanu wewnętrznego innych obiektów w nieoczekiwany sposób,
-            \item tylko wewnętrzne metody obiektu są uprawnione do zmiany jego stanu,
-            \item każdy typ obiektu dostarcza innym obiektom swój "interfejs", który określa dopuszczalne metody współpracy.
-        \end{itemize}
-        \item \textbf{Polimorfizm}
-        \begin{itemize}
-            \item wykazywanie różnych form działania podczas wywoływania metody w zależności od typu obiektu,
-            \item referencje i kolekcje obiektów mogą dotyczyć obiektów różnego typu, a wywołanie metody dla
-            referencji spowoduje zachowanie odpowiednie dla pełnego typu obiektu wywoływanego.
-        \end{itemize}
-        \item \textbf{Dziedziczenie}
-        \begin{itemize}
-            \item porządkuje i wspomaga polimorfizm i enkapsulację,
-            \item umożliwia definiowanie i tworzenie specjalizowanych obiektów,
-            \item dla obiektów specjalizowanych nie trzeba redefiniować całej funkcjonalności, lecz tylko tę,
-            której nie mają obiekty ogólniejsze.
-        \end{itemize}
-    \end{itemize}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{  p{3cm} p{12cm}  }
+                \textbf{Abstrakcja} &
+                System jako układ obiektów rozpatrywanych jako modele
+                abstrakcyjnego elementu, które mogą:
+                \begin{itemize}
+                    \item opisywać i zmieniać swój stan,
+                    \item komunikować się z innymi obiektami w systemie,
+                    \item wykonywać pewne czynności na rzecz innych obiektów bez ujawniania, w jaki sposób zaimplementowano
+                    dane cechy.
+                \end{itemize}\\
+
+
+                \textbf{Enkapsulacja}
+                &
+                \begin{itemize}
+                    \item ukrywanie szczegółów implementacji,
+                    \item obiekt nie może zmieniać stanu wewnętrznego innych obiektów w nieoczekiwany sposób,
+                    \item tylko wewnętrzne metody obiektu są uprawnione do zmiany jego stanu,
+                    \item każdy typ obiektu dostarcza innym obiektom swój "interfejs", który określa dopuszczalne metody współpracy.
+                \end{itemize}\\
+
+
+                \textbf{Polimorfizm}
+                &
+                \begin{itemize}
+                    \item wykazywanie różnych form działania podczas wywoływania metody w zależności od typu obiektu,
+                    \item referencje i kolekcje obiektów mogą dotyczyć obiektów różnego typu, a wywołanie metody dla
+                    referencji spowoduje zachowanie odpowiednie dla pełnego typu obiektu wywoływanego.
+                \end{itemize}\\
+
+
+                \textbf{Dziedziczenie}
+                &
+                \begin{itemize}
+                    \item porządkuje i wspomaga polimorfizm i enkapsulację,
+                    \item umożliwia definiowanie i tworzenie specjalizowanych obiektów,
+                    \item dla obiektów specjalizowanych nie trzeba redefiniować całej funkcjonalności, lecz tylko tę,
+                    której nie mają obiekty ogólniejsze.
+                \end{itemize}
+            \end{tabular}
+        \end{center}
+    \end{table}
 
     \subsubsection{GRASP}
     General Responsibility Assignment Software Patterns - zakres odpowiedzialności.

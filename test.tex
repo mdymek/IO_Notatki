@@ -19,7 +19,7 @@
                 \begin{itemize}
                     \item im wcześniej rozpoczniemy tym lepiej;
                     \item statyczna weryfikacja czy testowanie?
-                    \item zasada Patero;
+                    \item zasada Pareto;
                     \item definiowanie standardów dla testowania;
                 \end{itemize}
 
@@ -41,24 +41,18 @@
 
 
 
-    \subsubsection{Aksjomaty testowania}
+    \textbf{Aksjomaty testowania}
+    \begin{itemize}
+        \item \textbf{Antyekstencjonalność} - zestaw testów pokrywających nadklasę może nie być odpowiedni
+        dla jakiejś jej implementacji,
+        \item \textbf{Antydekompozycja} - pokrycie testami modułu wołanego nie jest takie samo
+        jak pokrycie tego, który woła,
+        \item \textbf{Antykompozycja} - testy pokrywające segmenty modułu niekoniecznie są odpowiednie
+        dla modułu jako całości.
+    \end{itemize}
 
 
-    \begin{table}[H]
-        \begin{center}
-            \begin{tabular}{ c c }
-                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth]{t_aks1.png}}
-                &
-                \raisebox{-\totalheight}{\includegraphics[width=0.5\textwidth]{t_aks2.png}}
-                \\
-            \end{tabular}
-        \end{center}
-    \end{table}
-
-
-
-
-    Pokrycie kodu
+    \textbf{Pokrycie kodu}
     \begin{itemize}
         \item \textbf{Pokrycie instrukcji}: sprawdzana jest każda instrukcja,
         \item \textbf{Pokrycie gałęzi}: odwiedzamy każda gałąź; instrukcja warunkowa musi być raz spełniona a raz fałszywa.
@@ -66,27 +60,111 @@
 
 
     \subsubsection{Rodzaje testów}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{5cm} p{11cm} }
+                \textbf{Jednostkowe}
+                &
+                \begin{itemize}
+                    \item przeprowadzane na bardzo niskim poziomie aplikacji, bardzo zbliżonym
+                    do kodu źródłowego oprogramowania,
+                    \item polegają na testowaniu poszczególnych metod i funkcji
+                    klas, komponentów lub modułów,
+                    \item automatyzacja z reguły dość tania,
+                    \item mogą one być bardzo szybko przeprowadzane przez serwer
+                    ciągłej integracji.
+                \end{itemize}
+                \\
 
-    \textbf{Rodzaje testów}
-    \begin{itemize}
-        \item jednostkowe
-        \item integracyjne
-        \item systemowe
-        \item akceptacyjne
-    \end{itemize}
+                \toprule
+
+                \textbf{Integracyjne}
+                &
+                \begin{itemize}
+                    \item sprawdzają, czy różne moduły lub usługi wykorzystywane przez oprogramowanie
+                    dobrze ze sobą współpracują,
+                    \item mogą być stosowane na przykład w celu sprawdzania
+                    interakcji aplikacji z bazą danych lub upewnienia się, że mikro-usługi działają zgodnie z
+                    postawionymi wymaganiami i oczekiwaniami,
+                    \item droższe, ponieważ
+                    wymagają uruchomienia wielu elementów aplikacji.
+                \end{itemize}
+                \\
+
+                \toprule
+
+                \textbf{Systemowe} - funkcjonalne i niefunkcjonalne
+                &
+                \begin{itemize}
+                    \item sprawdzają funkcjonalne oraz niefunkcjonalne wymagania systemowe oraz jakość
+                    testowanych danych,
+                    \item technika czarnej skrzynki dla wymagań funkcjonalnych,
+                \end{itemize}
+                \\
+
+                \toprule
+
+                \textbf{Akceptacyjne}
+                &
+                \begin{itemize}
+                    \item formalne testy sprawdzające spełnienie wymagań biznesowych,
+                    \item wymagają uruchomienia i
+                    poprawnego działania całości aplikacji i polegają na replikowaniu zachowań użytkowników,
+                    \item mogą obejmować również np. wydajność systemu,
+                    \item odrzucenie zmian w przypadku, gdy nie pozwalają one na
+                    osiągnięcie postawionych celów i wymagań.
+                \end{itemize}
+                \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \textbf{Rodzaje testów w fazie pielęgnacji}
+
+    Ponowne przetestowanie uprzednio testowanego programu po dokonaniu w nim modyfikacji, w celu upewnienia
+    się, że w wyniku zmian nie powstały nowe defekty lub nie ujawniły się wcześniej nie wykryte w nie
+    zmienionej części oprogramowania. Testy takie są przeprowadzane po zmianach oprogramowania lub jego
+    środowiska pracy.
 
 
-    \textbf{Rodzaje testów (faza pielęgnacji)}
-    \begin{itemize}
-        \item regresyjne
-        \item smoke test
-    \end{itemize}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{3cm} p{13cm} }
+                    \textbf{Regresyjne}
+                    &
+                    \begin{itemize}
+                        \item ponowne przetestowanie uprzednio testowanego programu po dokonaniu w nim modyfikacji
+                        lub zmianie środowiska pracy
+                        \item w celu upewnienia
+                        się, że w wyniku zmian nie powstały nowe defekty lub nie ujawniły się wcześniej nie wykryte,
+                    \end{itemize}
+                    \\
+
+                    \toprule
+
+                    \textbf{Smoke test}
+                    &
+                    \begin{itemize}
+                        \item przetestowanie sprzętu pod kątem tak oczywistego problemu, że wydobywający się z urządzenia dym
+                        byłby przewidywanym kryterium niezaliczenia testu,
+                        \begin{itemize}
+                            \item \textbf{test pobieżny} (będzie to często test przeszukujący "wszerz", a nie "w głąb"; często będzie to test najbardziej typowej ścieżki czynności, którą może przebyć potencjalny użytkownik),
+                            \item \textbf{test zajmujący} niewiele czasu (ma szybko udzielić informacji koniecznych do podjęcia decyzji, co zrobimy dalej w ramach testowania),
+                            \item \textbf{test poszukujący} bardzo wyraźnych problemów (test zdany pomyślnie powinien wykluczyć zachodzenie ewidentnej awarii na swojej ścieżce),
+                            \item \textbf{test dopuszczający} do kolejnego etapu prac (zwłaszcza w kontekście zaangażowania w tym kolejnym etapie znaczących zasobów).
+                        \end{itemize}
+                    \end{itemize}
+                    \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
 
 
     \textbf{Techniki testowania}
     \begin{itemize}
-        \item white box
-        \item black box
+        \item white box - struktura wewnętrzna
+        \item black box - struktura zewnętrzna
     \end{itemize}
 
 
@@ -119,7 +197,6 @@
                     \item Uruchomienie przypadków testowych
                     \item Porównanie uzyskanych wyników z oczekiwanymi
                 \end{itemize}
-                \textbf{Które z czynności najlepiej zautomatyzować?}
                 \\
             \end{tabular}
         \end{center}
