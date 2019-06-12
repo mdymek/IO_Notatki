@@ -75,7 +75,7 @@
     \subsection{Modele procesu wytwarzania oprogramowania}
     \begin{table}[H]
         \begin{center}
-            \begin{tabular}{ p{5cm} p{8cm}  }
+            \begin{tabular}{ p{4cm} p{11cm}  }
 
                 \textbf{Model kaskadowy}
                 &
@@ -93,7 +93,12 @@
 
                 \textbf{Model V}
                 &
-
+                \begin{itemize}
+                    \item wymagania klienta - testy akceptacyjne
+                    \item wymagania systemowe - testy systemowe
+                    \item ogólny design - testy integracyjne
+                    \item szczegółowy design - testy modułowe
+                \end{itemize}
                 \\
 
                 \cmidrule(r){1-1}\cmidrule(l){2-2}
@@ -113,7 +118,7 @@
                 \textbf{Model iteracyjny}
                 &
                 \begin{itemize}
-                    \item planowanie, projektowanie, ocena(testowanie), prototypowanie,
+                    \item planowanie, projektowanie, testowanie, prototypowanie,
                     \item całościowe myślenie o produkcie,
                     \item pozwala na wczesne wykrywanie błędów, łatwość wprowadzania zmian,
                     \item wymogi klienta dotyczące harmonogramu mogą utrudnić korzystanie z tego
@@ -153,11 +158,11 @@
                 \begin{itemize}
                     \item Poziomy dojrzałości
                     \begin{itemize}
-                        \item Poziom 1 - Wstępny: działanie tymczasowe, brak stabilności, nieprzewidywalny zakres.
-                        \item Poziom 2 - Powtarzalny: standardy, ustabilizowane środowisko pracy.
-                        \item Poziom 3 - Zdefiniowany: zbiór definicji i standardów, wyodrębnieni specjaliści, modyfikacja sposobu prowadzenia pod firmę.
-                        \item Poziom 4 - Zarządzany: wyniki mierzone zdefiniowanymi metrykami, ściślejsza kontrola obszarów potencjalnie niebezpiecznych.
-                        \item Poziom 5 - Optymalizujący: podnoszenie wymagań procesu, optymalizacja i zwiększanie efektywności i wydajności.
+                        \item Poziom 1 - Wstępny.
+                        \item Poziom 2 - Powtarzalny.
+                        \item Poziom 3 - Zdefiniowany.
+                        \item Poziom 4 - Zarządzany.
+                        \item Poziom 5 - Optymalizujący.
                     \end{itemize}
 
                     \item Kluczowe obszary procesowe - podzielone na pięć cech - podzielone na kluczowe praktyki.
@@ -171,21 +176,11 @@
                 Wymaga \textbf{udokumentowania wszystkich procedur} związanych z wytwarzaniem oprogramowania.
                 &
                 \begin{itemize}
-                    \item \textbf{Odpowiedzialność kierownictwa}
-                    \begin{itemize}
-                        \item właściwe funkcjonowanie organizacji,
-                        \item ustalenie misji, polityki, celów
-                        \item opracowanie planu działań do realizacji celów, przyznawanie zasobów.
-                    \end{itemize}
-
-                    \item \textbf{Zarządzanie zasobami} -ludz kimi, infrastrukturą, środowiskiem pracy.
-
-                    \item \textbf{Realizacja wyrobu} - procesy związane z realizacją wyrobu lub usługi.
-
-                    \item  \textbf{Pomiary, analiza i doskonalenie} - systematyczny monitoring, analiza i
-                    podejmowanie działań doskonalących.
-
-                    \item \textbf{Ciągłe doskonalenie} systemu zarządzania jakością.
+                    \item Odpowiedzialność kierownictwa
+                    \item Zarządzanie zasobami
+                    \item Realizacja wyrobu
+                    \item Pomiary, analiza i doskonalenie
+                    \item Ciągłe doskonalenie systemu zarządzania jakością
                 \end{itemize}
                 \\
             \end{tabular}
@@ -195,30 +190,14 @@
 
     \section{Zwinne procesy wytwarzania oprogramowania}
 
-
-    \textbf{Idea przepływu produktu przez system, podczas którego systematycznie zwiększana jest jego wartość.}\\
-
-    %  Lightweight (XP, Scrum) or fuller (DSDM, AUP) approaches.
-
     \subsection{Programowanie ekstremalne - XP}
-    Projekt informatyczny - \textbf{szczelny systemem czterech zmiennych: daty dostarczenia, kosztu, liczby
-    defektów oraz niekompletności funkcji}.
-
     \begin{itemize}
         \item brak fazy projektowania i dokumentacji,
         \item krótka perspektywa planowania,
         \item silne założenie, że klient pracuje cały czas z zespołem.
     \end{itemize}
 
-    \textbf{Wartości}
-    \begin{itemize}
-        \item \textbf{Komunikacja} - przede wszystkim werbalna.
-        \item \textbf{Prostota} - rozpoczynamy od najprostszego rozwiązania, spełniającego
-        wymagania; refaktoryzacja pozwala na adaptacje oprogramowania do zmian.
-        \item \textbf{Sprzężenie zwrotne} - obejmuje kilka aspektów (system, klient, zespół).
-        \item \textbf{Odwaga} - potrzebna by: od razu produkować kod; refaktoryzować; wyrzucić zbędny kod.
-        \item \textbf{Szacunek} - do pracy i czasu innych; między członkami zespołu.
-    \end{itemize}
+
 
     \begin{itemize}
         \item \textbf{Struktura zespołu} - role podstawowe (programiści, klient) i pomocnicze
@@ -237,141 +216,149 @@
         kontroli wersji.
     \end{itemize}
 
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{2cm} p{14cm}}
+                \textbf{Wartości}
+                &
+                \begin{itemize}
+                    \item \textbf{Komunikacja} - przede wszystkim werbalna.
+                    \item \textbf{Prostota} - rozpoczynamy od najprostszego rozwiązania.
+                    \item \textbf{Sprzężenie zwrotne} - obejmuje kilka aspektów (system, klient, zespół).
+                    \item \textbf{Odwaga} - potrzebna by: od razu produkować kod; refaktoryzować; wyrzucić zbędny kod.
+                    \item \textbf{Szacunek} - do pracy i czasu innych; między członkami zespołu.
+                \end{itemize}
+            \end{tabular}
+        \end{center}
+    \end{table}
+
     \subsection{SCRUM}
-    Metoda przy użyciu której ludzie mogą z powodzeniem rozwiązywać \textbf{złożone problemy
-    adaptacyjne}.
 
-    \textbf{Trzy filary} teorii SCRUMa:
-    \begin{itemize}
-        \item \textbf{Adaptacja} - powinna być \underline{ciągła}.
-        \item \textbf{Przejrzystość} - \underline{istotne aspekty} procesu
-        muszą być \underline{widoczne} dla osób odpowiedzialnych.
-        \item \textbf{Inspekcja} – poddawane \underline{regularnej} inspekcji.
-    \end{itemize}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{2.5cm} p{13.5cm}}
+                \textbf{Trzy filary}
+                &
+                \begin{itemize}
+                    \item \textbf{Adaptacja} - powinna być \underline{ciągła}.
+                    \item \textbf{Przejrzystość} - \underline{istotne aspekty} procesu
+                    muszą być \underline{widoczne} dla osób odpowiedzialnych.
+                    \item \textbf{Inspekcja} – poddawane \underline{regularnej} inspekcji.
+                \end{itemize}
+                \\
+                % \cmidrule(r){1-2}
+
+                \textbf{Role}
+                &
+                \begin{itemize}
+                    \item \textbf{Właściciel Produktu} - odpowiedzialny za pracę ZD, zarządza RP.
+                    \item \textbf{Zespoł deweloperski} - samoorganizujący się, wielofunkcyjny, zarządza RS.
+                    \item \textbf{Scrum Master}.
+                \end{itemize}
+                \\
 
 
-    \begin{itemize}
-        \item \textbf{Role}
-        \begin{itemize}
-            \item \textbf{Właściciel Produktu} - odpowiedzialny za pracę ZD, zarządza RP.
+                \textbf{Artefakty}
+                &
+                \begin{itemize}
+                    \item \textbf{Rejestr Produktu} - uporządkowana lista wszystkiego, co może być potrzebne
+                    w produkcie.
+                    \item \textbf{Rejestr Sprintu} - podzbió RP wybrany do Sprintu rozszerzony o plan
+                    dostarczenia Przyrostu produktu.
+                    \item \textbf{Monitorowanie postępów Sprintu} - możliwe w każdym momencie Sprintu.
+                    \item \textbf{Przyrost} - suma wszystkich elementów RP zakończonych podczas wszystkich sprintów.
+                    \item \textbf{Definicja Ukończenia}
+                \end{itemize}
+                \\
 
-            \item \textbf{Zespoł deweloperski} - samoorganizujący się, wielofunkcyjny, odpowiedzialność grupowa, 3-9 Deweloperów, zarządza RS.
+                \textbf{Zdarzenia}
+                &
+                \begin{itemize}
+                    \item \textbf{Sprint} – stały czas, niezmienny cel, niezmienny skład ZD.
+                    \item \textbf{Przerwanie Sprintu} - tylko przez WP, przy deaktualizacji celu.
+                    \item \textbf{Planowanie Sprintu} - 8h/mies, wyznaczenie celu, projektu systemu i planu prac.
+                    \item \textbf{Codzienny Scrum} - 15 min/d.
+                    \item \textbf{Przegląd Sprintu} - 4h na zakończenie Sprintu.
+                    \item \textbf{Retrospektywa Sprintu} - inspekcja i opracowanie planu usprawnień.
+                \end{itemize}
+            \end{tabular}
+        \end{center}
+    \end{table}
 
-            \item \textbf{Scrum Master}.
-
-        \end{itemize}
-
-
-        \item \textbf{Artefakty}
-        \begin{itemize}
-            \item \textbf{Rejestr Produktu} - uporządkowana lista wszystkiego, co może być potrzebne
-            w produkcie oraz jedyne źródło wymaganych zmian.
-
-            \item \textbf{Rejestr Sprintu} - podzbiór elementów RP wybranych do Sprintu rozszerzony o plan
-            dostarczenia Przyrostu produktu.
-
-            \item \textbf{Monitorowanie postępów Sprintu} - możliwe w każdym momencie Sprintu (Codzienny Scrum).
-
-            \item \textbf{Przyrost} - suma wszystkich elementów RP zakończonych podczas wszystkich spirntów.
-            Na koniec Sprintu nowy Przyrost musi być „Ukończony”.
-
-            \item \textbf{Definicja Ukończenia}
-        \end{itemize}
-
-        \item \textbf{Zdarzenia}
-
-        \begin{itemize}
-            \item \textbf{Sprint} – serce Scruma, stały czas, niezmienny cel, niezmienny skład ZD.
-
-            \item \textbf{Przerwanie Sprintu} - tylko przez WP, przy deaktualizacji celu.
-
-            \item \textbf{Planowanie Sprintu} - 8h/mies, wyznaczenie celu, projektu systemu i planu prac.
-
-            \item \textbf{Codzienny Scrum} - 15 min/d.
-
-            \item \textbf{Przegląd Sprintu} - 4h na zakończenie Sprintu
-            \begin{itemize}
-                \item WP stwierdza, które funkcjonalności zostały „Ukończone”, a które nie;
-                \item ZD omawia, co poszło dobrze w trakcie Sprintu; jakie były problemy i jak je rozwiązano;
-                \item ZD prezentuje „Ukończoną” pracę i odpowiada na pytania dotyczące Przyrostu,
-                \item WP omawia Rejestr Produktu w aktualnej jego postaci. Przewiduje termin zakończenia prac.
-                \item Cala grupa omawia kolejne kroki.
-            \end{itemize}
-
-            \item \textbf{Retrospektywa Sprintu} - inspekcja i opracowanie planu usprawnień.
-        \end{itemize}
-
-    \end{itemize}
 
     \subsection{AGILE PM (DSDM Atern)}
 
-    \begin{itemize}
-        \item \textbf{Fazy projektu}
-        \begin{itemize}
-            \item \textbf{Pre-project} - identyfikacja Business Sponsor i Business Visionary; zakresu, planu i zasobów na Feasibility.
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{2.5cm} p{13.5cm}}
+                \textbf{Role}
+                &
+                \begin{itemize}
+                    \item \textbf{Business Sponsor} - najwyższy rangą w projekcie; zapewnia finansowanie i zasoby.
+                    \item \textbf{Business visionary} - definiuje wizję projektu i komunikuje ją.
+                    \item \textbf{Project manager} - monitoruje postęp projektu, wysoko poziomowe planowanie.
+                    \item \textbf{Technical coordinator} - definiuje środowisko pracy, pilnuje standardów, zajmuje się wymaganiami niefunkcjonalnymi.
+                    \item \textbf{Team Leader}.
+                    \item \textbf{Business Ambassador} - rola biznesowa w zespole deweloperskim, tworzy dokumentacje użytkownika.
+                    \item \textbf{Business Analyst} - komunikacja między biznesem a zespołem deweloperskim.
+                    \item \textbf{Solution Developer} - skupiony na dostarczeniu rozwiązania.
+                    \item \textbf{Solution Tester} - definiuje scenariusze testowe, test casy.
+                \end{itemize}
+                \\
 
-            \item \textbf{Feasibility} - wykonalność, zyskowność, czasowość, kosztowość.
+                \textbf{Fazy projektu}
+                &
+                \begin{itemize}
+                    \item \textbf{Pre-project} - identyfikacja BS i BV; zakresu, planu i zasobów na Feasibility.
+                    \item \textbf{Feasibility} - wykonalność, zyskowność, czasowość, kosztowość.
+                    \item \textbf{Foundation} - wysoko poziomowe wymagania.
+                    \item \textbf{Exploration} - uszczegóławianie wymagań; iteracyjnie działające możliwe rozwiązanie.
+                    \item \textbf{Engineering} - rozwijanie rozwiązania z fazy Exploration.
+                    \item \textbf{Deployment} - potwierdzenie wydajności rozwiązania, dostarczenie rozwiązania i dokumentacji.
+                \end{itemize}
+                \\
+            \end{tabular}
+        \end{center}
+    \end{table}
 
-            \item \textbf{Foundation} - wysoko poziomowe wymagania.
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{2.5cm} p{13.5cm}}
+                \textbf{Produkty}
+                &
+                \begin{itemize}
+                    \item Levels of priority - \textbf{MoSCoW}: \textbf{M}ust Have,
+                    \textbf{S}hould Have, \textbf{C}ould Have, \textbf{W}on’t Have this time
+                \end{itemize}
+                \\
 
-            \item \textbf{Exploration} - uszczegóławianie wymagań; iteracyjnie działające rozwiązanie, możliwe podejścia.
+                \textbf{TIMEBOX}
+                &
+                \begin{itemize}
+                    \item \textbf{Kick-off} – krótka sesja, która ma pomoc zrozumieniu celu timeboxa,
+                    \item \textbf{Investigation} – szczegóły wszystkich produktów, które mamy wykonać,
+                    \item \textbf{Refinement} – kodowanie i testowanie,
+                    \item \textbf{Consolidation} – spinanie całości.
+                \end{itemize}
+                \\
 
-            \item \textbf{Engineering} - rozwijanie rozwiązania z fazy Exploration.
+                \textbf{Iterative development}
+                &
+                \begin{itemize}
+                    \item \textbf{Identify}: zespół definiuje cel
+                    \item \textbf{Plan}: kto powinien zrobić co
+                    \item \textbf{Evolve}: wykonywanie
+                    zaplanowanych czynności
+                    \item \textbf{Review}: sprawdzanie rezultatów
+                \end{itemize}
+            \end{tabular}
+        \end{center}
+    \end{table}
 
-            \item \textbf{Deployment} - potwierdzenie wydajności rozwiązania, dostarczenie rozwiązania i dokumentacji.
-        \end{itemize}
-
-        \item \textbf{Role}
-        \begin{itemize}
-            \item \textbf{Business Sponsor} - najwyższy rangą w projekcie; zapewnia finansowanie i zasoby.
-
-            \item \textbf{Business visionary} - definiuje wizję projektu i komunikuje ją.
-
-            \item \textbf{Project manager} - monitoruje postęp projektu, wysoko poziomowe planowanie harmonogramu.
-
-            \item \textbf{Technical coordination} - definiuje środowisko pracy, pilnuje standardów, zajmuje się wymaganiami niefunkcjonalnymi.
-
-            \item \textbf{Team Leader}.
-
-            \item \textbf{Business Ambassador} - rola biznesowa w zespole deweloperskim, tworzy dokumentacje użytkownika.
-
-            \item \textbf{Business Analyst} - komunikacja między biznesem a zespołem deweloperskim.
-
-            \item \textbf{Solution Developer} - skupiony na dostarczeniu rozwiązania.
-
-            \item \textbf{Solution Tester} - definiuje scenariusze testowe, test casy.
-        \end{itemize}
-
-        \item \textbf{Produkty}
-
-        \begin{itemize}
-            \item Levels of priority - \textbf{MoSCoW}: \textbf{M}ust Have,
-            \textbf{S}hould Have, \textbf{C}ould Have, \textbf{W}on’t Have this time
-        \end{itemize}
-
-        \item Fazy \textbf{TIMEBOX}u:
-        \begin{itemize}
-            \item \textbf{Kick-off} – krótka sesja, która ma pomoc zrozumieniu celu timeboxa,
-            \item \textbf{Investigation} – szczegóły wszystkich produktów, które mamy wykonać,
-            \item \textbf{Refinement} – kodowanie i testowanie,
-            \item \textbf{Consolidation} – spinanie całości.
-        \end{itemize}
-
-        \item \textbf{Iterative development}:
-        \begin{itemize}
-            \item \textbf{Identify}: zespół definiuje cel
-            \item \textbf{Plan}: kto powinien zrobić co
-            \item \textbf{Evolve}: wykonywanie
-            zaplanowanych czynności
-            \item \textbf{Review}: sprawdzanie rezultatów
-        \end{itemize}
-
-    \end{itemize}
 
     \subsection{AUP - Agile Unified Process}
 
     \begin{itemize}
-        \item uproszczona wersja Rational Unified Process,
         \item stosuje zwinne techniki takie jak TDD, refactoring,
         \item \textbf{seryjny w dużej skali, iteracyjny w małej}.
     \end{itemize}
@@ -397,6 +384,8 @@
         jest przez \textbf{składane przez odbiorcę zamówienie}, a nie ogólny, arbitralny plan produkcji.
         \item odnosi się do \textbf{etapowości procesu wytwarzania
         oprogramowania}, przynajmniej trzy stany pracy — do zrobienia, w trakcie, gotowe.
+        \item możliwość specjalizacji w zespołach
+        \item nie identyfikuje "Ukończenia"
     \end{itemize}
 
 
@@ -409,151 +398,18 @@
         \item elementy wadliwe lub występujące w niewłaściwych ilościach, nigdy nie są przekazywane w dół procesu;
         \item limity obowiązujące na każdym z etapów (fizyczna ilość kart kanban) są stopniowo obniżane aby redukować zapasy i
         odkrywać nieefektywności procesów produkcji, dążąc do ich doskonalenia.
+        \item postęp prac monitorowany na tablicy kanban oraz poprzez analizę średnich czasów wykonania\\
     \end{itemize}
 
-    \subsubsection{Kanban vs Scrum}
 
-    \begin{table}[H]
-        \begin{center}
-            \begin{tabular}{ | p{8cm} p{8cm} |}
-                \toprule
-                \multicolumn{2}{| p{16cm} |}{\textbf{Sposób pracy}}\\
-                \toprule
-                \textbf{Scrum} & \textbf{Kanban}\\
-                \toprule
-
-                Rytmiczność pracy & Płynność pracy\\
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Synchronizacja aktywnowści & Aktywności synchroniczne lub asynchronicznie\\
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Skupienie na celu, minimalizacja przełączania między zadaniami
-                &
-                Niski czas odpowiedzi systemu na zmiany\\
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Pełne zaangażowanie zespołu, wiedza ogólna i współodpowiedzialność
-                &
-                Możliwość pełnego wykorzystania specjalistów\\
-                \bottomrule
-            \end{tabular}
-        \end{center}
-    \end{table}
-
-    \begin{table}[H]
-        \begin{center}
-            \begin{tabular}{ | p{8cm} p{8cm} |}
-                \toprule
-                \multicolumn{2}{| p{16cm} |}{\textbf{Definicja ukończenia}}\\
-                \toprule
-                \textbf{Scrum} & \textbf{Kanban}\\
-                \toprule
-
-                Wymaga, aby ukończenie zadania oznaczało dla wszystkich to samo
-                &
-                Sama metoda nie identyfikuje definicji ukończenia
-                \\
-
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Bardziej szczegółowe implementacje korzystają z listy warunków jakie praca musi spełnić,
-                aby może ją uznać za ukończoną
-                &
-                Bardziej szczegółowe implementacje określają warunki uznania zadania za ukończone poprzez
-                przejście przez wszystkie procesy systemu
-                \\
-                \bottomrule
-            \end{tabular}
-        \end{center}
-    \end{table}
-
-    \begin{table}[H]
-        \begin{center}
-            \begin{tabular}{ | p{8cm} p{8cm} |}
-                \toprule
-                \multicolumn{2}{| p{16cm} |}{\textbf{Estymacja, planowanie i metryki}}\\
-                \toprule
-                \textbf{Scrum} & \textbf{Kanban}\\
-                \toprule
-
-                Określony sposób zarządzania zadaniami do realizacji w rejestrze produktu
-                &
-                Zadania do realizacji mogą pochodzić z różnych źródeł, a także być tworzone w ramach procesu
-                \\
-
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Estymacja zadań prowadzona przez zespół, najczęściej relatywna
-                &
-                Brak wymagań względem estymacji, ewentualnie prostu podział typów zadań\\
-
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Planowanie jako ilość pracy realizowanej w trakcie jednej iteracji
-                &
-                Planowanie oparte o przewidywany czas zakończenia zadania\\
-
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Zespół zobligowany do realizacji całości zaplanowanej pracy w trakci iteracji
-                &
-                Wykrywanie zadań przekraczających średni czas realizacji\\
-
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Zespół bierze czynny udział w planowaniu pracy
-                &
-                Zespół niekoniecznie musi brać udział w planowaniu pracy\\
-
-                \cmidrule(r){1-1}\cmidrule(l){2-2}
-                Postęp prac w ramach iteracji jest monitorowan na wykresach spalania
-                &
-                Postęp prac monitorowany na tablicy kanban oraz poprzez analizę średnich czasów wykonania\\
-                \bottomrule
-            \end{tabular}
-        \end{center}
-    \end{table}
-
-    \subsection{SCRUM + KANBAN = SCRUM-BAN}
-
-    \begin{table}[H]
-        \begin{center}
-            \begin{tabular}{| p{3cm} | p{6cm} p{6cm} |}
-                \toprule
-                & \textbf{Scrum} & \textbf{Scrumban}\\
-                \toprule
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Board/Artifacts} & board, backlogs, burn-downs & board only\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Ceremonies} & daily scrum, sprint planning, sprint review, sprint retrospective
-                & daily scrum (planning, review and retrospective as needed)\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Iterations} & yes (sprints) & no (continuous flow)\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Estimation} & yes & no (similar size)\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Teams} & mus be cross-functional & can be specialized\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Roles} & Product Owner, Scrum Master, Team & Team $+$ need roles\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Teamwork} & collaborative as needed by task & swarming to achieve goals\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{WIP} & controlled by sprint content & controlled by workflow state\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Changes} & should wait for the next sprint & added as needed on the to-do board\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Product Backlog} & list of prioritized end estimated stories & just in time cards\\
-
-                \cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
-                \textbf{Impediments} & dealt with immediately & avoided\\
-
-                \bottomrule
-            \end{tabular}
-        \end{center}
-    \end{table}
+    \subsection{SCRUM-BAN}
+    \begin{itemize}
+        \item board
+        \item tylko daily scrum, płynna praca
+        \item zespoły mogą być specjalizowane, role jak potrzeba
+        \item WIP kontrolowane przez workflow, zmiany dodawane do TODO board na bieżąco
+        \item product backlog tylko w kartkach czasowych
+    \end{itemize}
 
 
     \section{Wymagania}
@@ -563,22 +419,13 @@
 
     \begin{itemize}
         \item \textbf{Funkcjonalne} - czynność, zadanie, „System powinien\dots”.
-        \begin{itemize}
-            \item \textbf{Zalety}: łatwość spisywania.
-            \item \textbf{Wady}: słaba czytelność, trudne sprawdzanie kompletności i spójności.
-            \item \textbf{Przypadki użycia, historyjki użytkownika}.
-        \end{itemize}
         \item \textbf{Pozafunkcjonalne} - technikalia mierzone metrykami.
         \begin{itemize}
-            \item Ograniczenia usług lub funkcji, np. czasowe, procesu rozwoju oprogramowania, standardy.
-            \item Każda cecha to \textbf{zbiór atrybutów}.
-            \begin{itemize}
-                \item \textbf{Niezawodność} - odporność na błędy, dojrzałość.
-                \item \textbf{Wydajność}.
-                \item \textbf{Użyteczność} - łatwość zrozumienia i nauki, operatywność.
-                \item \textbf{Łatwość konserwacji} - łatwość analizy, wprowadzania zmian, testowania; stabilność.
-                \item \textbf{Przenośność} - łatwość adaptacji, instalacji.
-            \end{itemize}
+            \item \textbf{Niezawodność} - odporność na błędy, dojrzałość.
+            \item \textbf{Wydajność}.
+            \item \textbf{Użyteczność} - łatwość zrozumienia i nauki, operatywność.
+            \item \textbf{Łatwość konserwacji} - łatwość analizy, wprowadzania zmian, testowania; stabilność.
+            \item \textbf{Przenośność} - łatwość adaptacji, instalacji.
         \end{itemize}
     \end{itemize}
 
@@ -792,46 +639,10 @@
 
     \begin{itemize}
         \item \textbf{Single responsibility principle}
-        \begin{itemize}
-            \item Klasa powinna mieć pojedyńczą odpowiedzialność.
-            \item Nigdy nie powinien istnieć więcej niż jeden powód do modyfikacji klasy.
-            \item Im mniejsza i bardziej wyspecyfikowana klasa tym łatwiej ją nazwać.
-            \item Łatwiejsze wprowadzanie zmian,testowanie i naprawa
-        \end{itemize}
-        Jak rozpoznać naruszenie SRP?
-        \begin{itemize}
-            \item Ilość linii kodu ( Class:LOC > 250),
-            \item Za dużo zależności, słaba spojność, dużo zagnieżdżeń,
-            \item Opis lub nazwa wymaga “i”,
-            \item Wymaga skomplikowanych testów,
-            \item Modyfikacja może zepsuć inne testy.
-        \end{itemize}
         \item \textbf{Open/closed principle}
-        \begin{itemize}
-            \item klasa powinna być otwarta na rozbudowę, ale zamknięta do jej własnej modyfikacji,
-            \item możemy dodawać nowe pola i metody, ale bez zmiany w wewnętrznej strukturze,
-            \item zmiana istniejącej struktury może mieć wpływ na inne elementy,
-            \item hermetyzacja, dziedziczenie, polimorfizm, delegaty,
-            \item unikamy instrukcji warunkowych.
-        \end{itemize}
         \item \textbf{Liskov substitution principle}
-        \begin{itemize}
-            \item 'Jeśli obiekt klasy S może stać się substytutem obiektu klasy T w
-            dowolnym miejscu kodu, w którym oczekiwany jest obiekt klasy T, to klasa S jest podtypem klasy T.'
-        \end{itemize}
         \item \textbf{Interface segregation principle}
-        \begin{itemize}
-            \item Kilka konkretnych interfejsów jest lepszych niż jeden ogólny,
-            \item Związki między klasami powinny być ograniczone do minimum,
-            \item Klient klasy powinien mieć dostep tylko do tyh składowych klasy, których rzeczywiście potrzebuje,
-            \item Moduły wysokiego poziomu nie powinny zależeć od modułów niskopoziomowych,
-            \item Obie grupy modułów powinny zależeć od abstrakcji.
-        \end{itemize}
-        \item \textbf{Dependency inversion principle} - zasada odwracania zależności.
-        \begin{itemize}
-            \item Software powinien zależeć od abstrakcji a nie od konkretyzacji,
-            \item 'Hollywood Principle' - don't call us, we'll call you!.
-        \end{itemize}
+        \item \textbf{Dependency inversion principle}
     \end{itemize}
 
 
@@ -839,9 +650,7 @@
         \begin{center}
             \begin{tabular}{  p{3cm} p{12cm}  }
                 \toprule
-
                 \multicolumn{2}{c}{Wzorce kreacyjne}\\
-
                 \toprule
 
                 \textbf{Singleton}
@@ -880,9 +689,7 @@
         \begin{center}
             \begin{tabular}{  p{3cm} p{12cm}  }
                 \toprule
-
                 \multicolumn{2}{c}{Wybrane wzorce strukturalne}\\
-
                 \toprule
 
                 \textbf{Adapter}
@@ -920,12 +727,8 @@
     \begin{table}[H]
         \begin{center}
             \begin{tabular}{  p{3cm} p{12cm}  }
-
-
                 \toprule
-
                 \multicolumn{2}{c}{Wybrane wzorce behawioralne}\\
-
                 \toprule
 
                 \textbf{Obserwator}
@@ -964,7 +767,6 @@
                     \item Umożliwienie \textbf{sekwencyjnego dostępu} do elementów kolekcji bez ujawniania jej wewnętrznej implementacji
                 \end{itemize}
                 \\
-
                 \bottomrule
             \end{tabular}
         \end{center}
@@ -1053,6 +855,17 @@
         \end{center}
     \end{table}
 
+    \subsubsection{Metazasady}
+    \begin{itemize}
+        \item \textbf{Don't repeat yourself - DRY}\\
+        Jedno miejsce w systemie, na pojedynczą informację, co ułatwia późniejsze zmiany.
+        Inna nazwa to \textbf{Single Source Of Truth} (SSOT), każda informacja w systemie powinna być przechowywana
+        dokładnie raz, bo ułatwia to jej modyfikację.
+        \item \textbf{Keep it simple, stupid - KISS}\\
+        W projektowaniu interfejsów powyższą zasadę można nazwać \textbf{zasadą najmniejszego zaskoczenia}, czyli
+        fragment kodu powinien robić dokładnie to co ma robić. Czasem trzeba wybrać, czy dany fragment kodu
+        napisać z wykorzystaniem wzorca projektowego czy prostej konstrukcji.
+    \end{itemize}
 
     \subsubsection{GRASP - General Responsibility Assignment Software Patterns}
     \begin{table}[H]
@@ -1127,20 +940,6 @@
     \end{table}
 
 
-    \subsubsection{Metazasady}
-    \begin{itemize}
-        \item \textbf{Don't repeat yourself - DRY}\\
-        Jedno miejsce w systemie, na pojedynczą informację, co ułatwia późniejsze zmiany.
-        Inna nazwa to \textbf{Single Source Of Truth} (SSOT), każda informacja w systemie powinna być przechowywana
-        dokładnie raz, bo ułatwia to jej modyfikację.
-        \item \textbf{Keep it simple, stupid - KISS}\\
-        W projektowaniu interfejsów powyższą zasadę można nazwać \textbf{zasadą najmniejszego zaskoczenia}, czyli
-        fragment kodu powinien robić dokładnie to co ma robić. Czasem trzeba wybrać, czy dany fragment kodu
-        napisać z wykorzystaniem wzorca projektowego czy prostej konstrukcji.
-    \end{itemize}
-
-
-
     \section{Testowanie i kontrola jakości}
 
     \textbf{Planowanie testów}
@@ -1169,89 +968,25 @@
     \end{itemize}
 
 
-    \subsubsection{Rodzaje testów}
     \begin{table}[H]
         \begin{center}
-            \begin{tabular}{ p{2cm} p{14cm} }
-                \textbf{Jednostkowe}
-                &
+            \begin{tabular}{ p{.3\textwidth} p{.7\textwidth} }
+                \textbf{Rodzaje testów}
                 \begin{itemize}
-                    \item przeprowadzane na bardzo niskim poziomie,
-                    \item polegają na testowaniu poszczególnych metod i funkcji
-                    klas, komponentów lub modułów,
-                    \item automatyzacja z reguły dość tania,
-                    \item mogą one być bardzo szybko przeprowadzane przez serwer
-                    ciągłej integracji.
+                    \item Jednostkowe
+                    \item Integracyjne
+                    \item Systemowe
+                    \item Akceptacyjne
                 \end{itemize}
-                \\
-
-                \cmidrule(r){1-2}
-
-                \textbf{Integracyjne}
-                &
+&
+                \textbf{Rodzaje testów w fazie pielęgnacji}
                 \begin{itemize}
-                    \item sprawdzają, czy różne moduły lub usługi wykorzystywane przez oprogramowanie
-                    dobrze ze sobą współpracują,
-                    \item droższe, ponieważ
-                    wymagają uruchomienia wielu elementów aplikacji.
+                    \item Regresyjne - ponowne przetestowanie uprzednio testowanego programu po dokonaniu zmian.
+                    \item Smoke test - przetestowanie sprzętu pod kątem oczywistego problemu.
                 \end{itemize}
-                \\
-
-                \cmidrule(r){1-2}
-
-                \textbf{Systemowe}
-                &
-                \begin{itemize}
-                    \item sprawdzają funkcjonalne oraz niefunkcjonalne wymagania systemowe oraz jakość
-                    testowanych danych,
-                    \item technika czarnej skrzynki dla wymagań funkcjonalnych,
-                \end{itemize}
-                \\
-
-                \cmidrule(r){1-2}
-
-                \textbf{Akceptacyjne}
-                &
-                \begin{itemize}
-                    \item formalne testy sprawdzające spełnienie wymagań biznesowych,
-                    \item wymagają uruchomienia i
-                    poprawnego działania całości aplikacji i polegają na replikowaniu zachowań użytkowników,
-                \end{itemize}
-                \\
             \end{tabular}
         \end{center}
     \end{table}
-
-
-    \textbf{Rodzaje testów w fazie pielęgnacji}
-
-    \begin{table}[H]
-        \begin{center}
-            \begin{tabular}{ p{2cm} p{14cm} }
-                \textbf{Regresyjne}
-                &
-                \begin{itemize}
-                    \item ponowne przetestowanie uprzednio testowanego programu po dokonaniu w nim modyfikacji lub zmianie
-                    środowiska pracy
-                    \item w celu upewnienia
-                    się, że w wyniku zmian nie powstały nowe defekty lub nie ujawniły się wcześniej nie wykryte,
-                \end{itemize}
-                \\
-
-                \cmidrule(r){1-2}
-
-                \textbf{Smoke test}
-                &
-                \begin{itemize}
-                    \item przetestowanie sprzętu pod kątem tak oczywistego problemu, że wydobywający się z urządzenia dym
-                    byłby przewidywanym kryterium niezaliczenia testu,
-                \end{itemize}
-                \\
-            \end{tabular}
-        \end{center}
-    \end{table}
-
-
 
     \textbf{Techniki testowania}
     \begin{itemize}
@@ -1372,27 +1107,37 @@
 
     \subsection{Przykre zapachy w kodzie programów}
 
-    \begin{itemize}
-        \item Zduplikowany kod
-        \item Długa metoda
-        \item Nadmiernie rozbudowana klasa
-        \item Długa lista parametrów
-        \item Nadmiar komentarzy
-        \item Niekompletna klasa biblioteczna
-        \item Skomplikowane instrukcje warunkowe
-        \item Łańcuchy wywołań metod
-        \item Pojemnik na dane
-        \item Zbitka danych
-        \item Odrzucony spadek
-        \item Niewłaściwa hermetyzacja
-        \item Bezużyteczna klasa
-        \item Zazdrość o funkcję
-        \item Równoległe hierarchie dziedziczenia
-        \item Pośrednik
-        \item Zmiany z wielu przyczyn
-        \item Odpryskowa modyfikacja
-        \item Spekulacyjne uogólnienie
-    \end{itemize}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{.5\textwidth} p{.5\textwidth} }
+                \begin{itemize}
+                    \item Zduplikowany kod
+                    \item Długa metoda
+                    \item Nadmiernie rozbudowana klasa
+                    \item Długa lista parametrów
+                    \item Nadmiar komentarzy
+                    \item Niekompletna klasa biblioteczna
+                    \item Skomplikowane instrukcje warunkowe
+                    \item Łańcuchy wywołań metod
+                    \item Pojemnik na dane
+                    \item Zbitka danych
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item Odrzucony spadek
+                    \item Niewłaściwa hermetyzacja
+                    \item Bezużyteczna klasa
+                    \item Zazdrość o funkcję
+                    \item Równoległe hierarchie dziedziczenia
+                    \item Pośrednik
+                    \item Zmiany z wielu przyczyn
+                    \item Odpryskowa modyfikacja
+                    \item Spekulacyjne uogólnienie
+                \end{itemize}
+
+            \end{tabular}
+        \end{center}
+    \end{table}
     \subsection{Ewolucja oprogramowania}
     \textbf{Ewolucja oprogramowania} - \textbf{proces zmian} zachodzących w oprogramowaniu
     w czasie jego życia.
@@ -1435,37 +1180,46 @@
         \end{center}
     \end{table}
 
-    \subsubsection{Prawa Lehmana}
-    Dotyczą systemów typu E, niesprawdzone w typach S i P, raczej obserwacje/hipotezy.
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{3cm} p{13cm}}
+                \textbf{Prawa Lehmana}
+                Dotyczą systemów typu E, niesprawdzone w typach S i P, raczej obserwacje/hipotezy.
+                &
+                \begin{itemize}
+                    \item Prawo nieustannej zmiany
+                    \item Prawo wzrastającej złożoności
+                    \item Prawo samoregulacji
+                    \item Prawo organizacyjnej stabilności
+                    \item Prawo zachowania przyzwyczajeń
+                    \item Prawo ciągłego wzrostu
+                    \item Prawo spadku jakości
+                    \item Prawo przyrostowego rozwoju
+                \end{itemize}
+                \\
 
-    \begin{itemize}
-        \item Prawo nieustannej zmiany
-        \item Prawo wzrastającej złożoności
-        \item Prawo samoregulacji
-        \item Prawo organizacyjnej stabilności
-        \item Prawo zachowania przyzwyczajeń
-        \item Prawo ciągłego wzrostu
-        \item Prawo spadku jakości
-        \item Prawo przyrostowego rozwoju
-    \end{itemize}
+                \textbf{Wnioski z praw Lehmana}
+                &
+                \begin{itemize}
+                    \item Oprogramowanie, aby pozostało użyteczne, musi ewoluować;
+                    \item Jakość oprogramowania (zdolność do ewolucji) pogarsza się z upływem czasu
+                    \item Rosnąca złożoność oprogramowania w pewnym momencie znacznie utrudnia dalszy rozwój systemu
+                    \item Tempo rozwoju oprogramowania jest w najlepszym przypadku stałe i nie zależy od
+                    sposobu zarządzania
+                \end{itemize}
 
-    \textbf{Wnioski z praw Lehmana}
-    \begin{itemize}
-        \item Oprogramowanie, aby pozostało użyteczne, musi ewoluować;
-        \item Jakość oprogramowania (zdolność do ewolucji) pogarsza się z upływem czasu
-        \item Rosnąca złożoność oprogramowania w pewnym momencie znacznie utrudnia dalszy rozwój systemu
-        \item Tempo rozwoju oprogramowania jest w najlepszym przypadku stałe i nie zależy od
-        sposobu zarządzania
-    \end{itemize}
+            \end{tabular}
+        \end{center}
+    \end{table}
+
 
     \subsubsection{Pielęgnacja oprogramowania}
-    Cztery rodzaje aktywności:
     \begin{itemize}
-        \item \textbf{pielęgnacji doskonalącej} (ok. 50\%) - implementacja nowych wymagań
+        \item \textbf{doskonaląca} (ok. 50\%) - implementacja nowych wymagań
         funkcjonalnych;
-        \item \textbf{pielęgnacji adaptacyjnej} (ok. 25\%) -  dostosowywanie do zmian zachodzących w środowisku;
-        \item \textbf{pielęgnacji naprawcze} (ok. 20\%) - usuwanie błędów
-        \item \textbf{prewencyjnej} (ok. 5\%) - restrukturyzacja wewnętrzna.
+        \item \textbf{adaptacyjna} (ok. 25\%) - dostosowywanie do zmian zachodzących w środowisku;
+        \item \textbf{naprawcza} (ok. 20\%) - usuwanie błędów
+        \item \textbf{prewencyjna} (ok. 5\%) - restrukturyzacja wewnętrzna.
     \end{itemize}
 
     \textbf{Model kosztowy Boehma} - $AME = 1.0 * ACT * SDT$; AME - roczna pracochłonność związana
@@ -1474,97 +1228,95 @@
 
     \section{Ciągła integracja, oprogramowanie w chmurze}
 
-        \subsection{Ciągła integracja}
+    \subsection{Ciągła integracja}
 
-                    \textbf{Zalety CI}
-                    \begin{itemize}
-                        \item zmniejsza ilość pracy potrzebnej do łączenia zmian
-                        z istniejącym kodem aplikacji.
-                        \item wczesne wykrywanie konfliktów, błędów w
-                        kompilacji i defektów w kodzie.
-                        \item zawsze gotowa wersja demonstracyjna
-                    \end{itemize}
-
-
-        \textbf{Wymagania CI}
-        \begin{itemize}
-            \item repozytorium kodu
-            \item skrypt umożliwiający automatyczne budowanie aplikacji
-            \item Testy Jednostkowe
-            \item wyzwalacz w postaci włącznika czasowego lub wykrywania zmiany w kodzie, albo połączenia obu.
-            \item system powiadamiania o wynikach procesu i problemach
-            \item zbiór wyników i interfejs dostępny dla każdego w dowolnym momencie
-        \end{itemize}
-
-        \textbf{Ciągłe dostarczanie oprogramowania}
-        \begin{itemize}
-            \item Za każdym razem, kiedy build pozytywnie przejdzie wszystkie testy, jest automatycznie wdrażany do
-            środowiska testowego, gdzie można go poddać dalszym testom.
-            \item Proces ten może nastąpić tylko raz, zanim oprogramowanie zostanie udostępniane klientom
-            albo może się powtarzać, tworząc wiele nowych funkcji i poprawek zanim nadejdzie czas wydania.
-        \end{itemize}
+    \textbf{Zalety CI}
+    \begin{itemize}
+        \item zmniejsza ilość pracy potrzebnej do łączenia zmian
+        z istniejącym kodem aplikacji.
+        \item wczesne wykrywanie konfliktów, błędów w
+        kompilacji i defektów w kodzie.
+        \item zawsze gotowa wersja demonstracyjna
+    \end{itemize}
 
 
-        \subsection{Oprogramowanie w chmurze}
+    \textbf{Wymagania CI}
+    \begin{itemize}
+        \item repozytorium kodu
+        \item skrypt umożliwiający automatyczne budowanie aplikacji
+        \item Testy Jednostkowe
+        \item wyzwalacz w postaci włącznika czasowego lub wykrywania zmiany w kodzie, albo połączenia obu.
+        \item system powiadamiania o wynikach procesu i problemach
+        \item zbiór wyników i interfejs dostępny dla każdego w dowolnym momencie
+    \end{itemize}
 
-        \begin{table}[H]
-            \begin{center}
-                \begin{tabular}{ p{.5\linewidth} p{.5\linewidth}}
-                    \textbf{Zalety} & \textbf{Wady}\\
-
-                    \begin{itemize}
-                        \item Skalowalność
-                        \item Dostępność
-                        \item Wydajność
-                        \item Łatwe zarządzanie
-                        \item Elastyczność
-                        \item Niezawodność
-                        \item Ekologia
-                    \end{itemize}
-                    &
-                    \begin{itemize}
-                        \item Bezpieczeństwo
-                        \item Ograniczone rozwiązania
-                        \item Wydajność
-                    \end{itemize}
-                \end{tabular}
-            \end{center}
-        \end{table}
+    \textbf{Ciągłe dostarczanie oprogramowania}
+    \begin{itemize}
+        \item Za każdym razem, kiedy build pozytywnie przejdzie wszystkie testy, jest automatycznie wdrażany do
+        środowiska testowego, gdzie można go poddać dalszym testom.
+        \item Proces ten może nastąpić tylko raz, zanim oprogramowanie zostanie udostępniane klientom
+        albo może się powtarzać, tworząc wiele nowych funkcji i poprawek zanim nadejdzie czas wydania.
+    \end{itemize}
 
 
+    \subsection{Oprogramowanie w chmurze}
 
-        \subsubsection{Modele dystrybucji}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{.5\linewidth} p{.5\linewidth}}
+                \textbf{Zalety} & \textbf{Wady}\\
 
-        \begin{table}[H]
-            \begin{center}
-                \begin{tabular}{ p{.4\linewidth} p{.6\linewidth}}
-                    \textbf{Software as a Service - SaaS}
-                    &
-                    aplikacja jest przechowywana i wykonywana na
-                    komputerach dostawcy usługi i jest udostępniana
-                    użytkownikom przez Internet.
-                    \\
-
-                    \cmidrule(r){1-1}\cmidrule(l){2-2}
-                    \textbf{Infrastracture as a Service - IaaS}
-                    &
-                    polega na dostarczeniu przez dostawcę całej infrastruktury
-                    informatycznej, takiej jak np. wirtualizowany sprzęt,
-                    skalowany w zależności od potrzeb użytkownika.
-                    \\
-
-                    \cmidrule(r){1-1}\cmidrule(l){2-2}
-                    \textbf{Platform as a Service - PaaS}
-                    &
-                    polega na udostępnieniu przez dostawcę wirtualnego
-                    środowiska pracy; skierowana jest przede wszystkim do
-                    programistow.
-                    \\
-                \end{tabular}
-            \end{center}
-        \end{table}
+                \begin{itemize}
+                    \item Skalowalność
+                    \item Dostępność
+                    \item Wydajność
+                    \item Łatwe zarządzanie
+                    \item Elastyczność
+                    \item Niezawodność
+                    \item Ekologia
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item Bezpieczeństwo
+                    \item Ograniczone rozwiązania
+                    \item Wydajność
+                \end{itemize}
+            \end{tabular}
+        \end{center}
+    \end{table}
 
 
+
+    \subsubsection{Modele dystrybucji}
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{.4\linewidth} p{.6\linewidth}}
+                \textbf{Software as a Service - SaaS}
+                &
+                aplikacja jest przechowywana i wykonywana na
+                komputerach dostawcy usługi i jest udostępniana
+                użytkownikom przez Internet.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Infrastracture as a Service - IaaS}
+                &
+                polega na dostarczeniu przez dostawcę całej infrastruktury
+                informatycznej, takiej jak np. wirtualizowany sprzęt,
+                skalowany w zależności od potrzeb użytkownika.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Platform as a Service - PaaS}
+                &
+                polega na udostępnieniu przez dostawcę wirtualnego
+                środowiska pracy; skierowana jest przede wszystkim do
+                programistow.
+                \\
+            \end{tabular}
+        \end{center}
+    \end{table}
 
 
 \end{document}
