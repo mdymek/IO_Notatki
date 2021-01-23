@@ -1,0 +1,482 @@
+%! suppress = LineBreak
+%! suppress = MissingLabel
+%! suppress = FileNotFound
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+    \subsection{Przykre zapachy w kodzie programów}
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{.35\linewidth} p{.65\linewidth} }
+                \toprule
+                \textbf{Nazwa} & \textbf{Rozwiązanie} \\
+                \toprule
+                \textbf{Zduplikowany kod}
+                \begin{itemize}
+                    \item Identyczny lub podobny kod w wielu miejscach
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item w jednej klasie: \textit{Extract Method}
+                    \item w klasach o wspólnej nadklasie: \textit{Extract Method} i \textit{Pull-up Method}
+                    \item w klasach niezwiązanych: \textit{Extract Class}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Długa metoda}
+
+                \begin{itemize}
+                    \item Metoda wykonuje w rzeczywistości wiele czynności
+                    \item Brak wsparcia ze strony metod niższego poziomu
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Extract Method}
+                    \item \textit{Replace Temp with Query}
+                    \item \textit{Replace Method with Method Object}
+                    \item \textit{Introduce Parameter Object} lub \textit{Preserve Whole Object}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Nadmiernie rozbudowana klasa}
+
+                \begin{itemize}
+                    \item Klasa posiada zbyt wiele odpowiedzialności,
+                    \item Liczne klasy wewnętrzne, pola i metody,
+                    \item Duża liczba metod upraszczających.
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Extract Class}, \textit{Extract Sub/Superclass} lub \textit{Extract Interface}
+                    \item \textit{Pull up Member}, \textit{Push Down Member}, \textit{Move Member}.
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Długa lista parametrów}
+                \begin{itemize}
+                    \item Metoda otrzymuje więcej danych niż potrzebuje
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Replace Parameter with Method}, \textit{Preserve Whole Object} lub \textit{Introduce Parameter Object}.
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{ Nadmiar komentarzy}
+                \begin{itemize}
+                    \item Komentarze niepotrzebnie opisują znaczenie kodu
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Extract Metod}, \textit{Rename Metod}
+                    \item \textit{Introduce Assertion}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Niekompletna klasa biblioteczna}
+                \begin{itemize}
+                    \item Gotowa biblioteka nie posiada pewnej funkcjonalności
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Introduce Foreign Method}, \textit{Introduce Local Extension}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Skomplikowane instrukcje warunkowe}
+                \begin{itemize}
+                    \item Metoda zawiera złożoną instrukcję if lub switch
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Extract Method}
+                    \item \textit{Replace Conditional with Polimorphism/State}
+                    \item \textit{Replace Conditional with Subclasses}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Łańcuchy wywołań metod}
+                \begin{itemize}
+                    \item łańcuchy wywołań przez delegację
+                    \item naruszenie prawa Demeter
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Hide Delegate}
+                    \item \textit{Extract Method} i \textit{Move Method}
+                \end{itemize}
+                \\
+
+            \end{tabular}
+        \end{center}
+    \end{table}
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{.35\linewidth} p{.65\linewidth}}
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Pojemnik na dane}
+                \begin{itemize}
+                    \item Klasa jedynie przechowuje dane i nie posiada użytecznych metod.
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Extract Method} i \textit{Move Method}
+                    \item \textit{Inline Class}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Zbitka danych}
+                \begin{itemize}
+                    \item Zbiór danych zawsze występujących wspólnie
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Extract Class, Introduce Parameter Object, Preserve Whole Class}
+                    \item podobnie jak z Long Parameter List
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Odrzucony spadek}
+                \begin{itemize}
+                    \item Podklasa nie wykorzystuje odziedziczonych metod i pól
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Push Down Member}
+                    \item \textit{Replace Inheritance with Delegation}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Niewłaściwa hermetyzacja}
+                \begin{itemize}
+                    \item Klasa bezpośrednio odwołuje się do składowych wewnętrznych innej klasy.
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Move Member}
+                    \item \textit{Change Bidirectional References to Unidirectional}
+                    \item \textit{Replace Inheritance with Delegation}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Bezużyteczna klasa}
+                \begin{itemize}
+                    \item Klasa nie posiada żadnej lub ograniczoną funkcjonalność.
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Move Member, Inline Class}
+                    \item \textit{Collapse Hierarchy}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Zazdrość o funkcję}
+                \begin{itemize}
+                    \item Metoda w klasie częściej korzysta z metod w obcych klasach
+                    \item Niska spójność klasy
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Move Method}
+                    \item wzorzec projektowy Visitor
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Równoległe hierarchie dziedziczenia}
+                \begin{itemize}
+                    \item Utworzenie podklasy powoduje konieczność utworzenia odpowiadającej jej podklasy
+                    w innej hierarchii dziedziczenia.
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Move Method, Move Field, Extract Interface}
+                    \item \textit{Inline Class}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Pośrednik}
+                \begin{itemize}
+                    \item Klasa deleguje większość funkcjonalności do innych klas
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Remove Middle Man, Inline Method}
+                    \item \textit{Replace Delegation with Inheritance}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Zmiany z wielu przyczyn}
+                \begin{itemize}
+                    \item Klasa jest wielokrotnie modyfikowana w różnych celach
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Extract Class} z elementów zmieniających się z jednego powodu
+                \end{itemize}
+                \\
+
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Odpryskowa modyfikacja}
+                \begin{itemize}
+                    \item Zmiana w jednym miejscu powodu konieczność modyfikacji w innych
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Extract Class, Move Method, Move Field}
+                    \item \textit{Inline Class}
+                \end{itemize}
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+                \textbf{Spekulacyjne uogólnienie}
+                \begin{itemize}
+                    \item Klasa jest zaprojektowana pod kątem potencjalnej fnkcjonalności do zaimplementowania w przyszłości
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item \textit{Collapse Hierarchy}
+                    \item \textit{Inline Class, Remove Parameter}
+                    \item \textit{Rename Method}
+                \end{itemize}
+                \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \subsection{Ewolucja oprogramowania}
+    \textbf{Ewolucja oprogramowania} - \textbf{proces zmian} zachodzących w oprogramowaniu
+    w czasie jego życia.
+
+    \textbf{Pielęgnacja oprogramowania} - \textbf{czynności modyfikujące} program
+    po jego dostarczeniu i wdrożeniu. Cele:
+    \begin{itemize}
+        \item poprawa błędów
+        \item poprawa wydajności lub innych atrybutów programu
+        \item adaptacja produktu do zmian w środowisku operacyjnym
+    \end{itemize}
+
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{2cm} | p{4cm} | p{4cm} | p{4cm}}
+                & \textbf{Program typu E}            & \textbf{Program typu P}       & \textbf{Program typu S}         \\
+                & osadzony w rz\textbf{E}czywistości & rozwiązujący \textbf{P}roblem & oparty na \textbf{S}pecyfikacji \\
+                \toprule
+                \textbf{założenia} & system funkcjonuje w rzeczywistym świecie
+                & system w przybliżeniu odtwarza rzeczywistość
+                & dostępna jest pełna specyfikacja systemu
+                \\
+
+                \cmidrule(r){2-2}\cmidrule(rl){3-3}\cmidrule(l){4-4}
+
+                \textbf{kryterium jakości} & subiektywna ocena użytkownika
+                & akceptowalne rozwiązanie problemu
+                & zgodność ze specyfikacją
+                \\
+
+                \cmidrule(r){2-2}\cmidrule(rl){3-3}\cmidrule(l){4-4}
+                \textbf{ewolucja} & nieunikniona, program i jego środowisko nieustannie oddziałują na siebie
+                &
+                prawdopodobna – poprawa programu, ewolucja środowiska
+                &
+                brak (modyfikacja nowy problem nowy program)
+                \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \subsubsection{Prawa Lehmana}
+    Dotyczą systemów typu E, niesprawdzone w typach S i P, raczej obserwacje/hipotezy.
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{p{.4\linewidth} p{.6\linewidth}}
+                \textbf{Prawo nieustannej zmiany}
+                &
+                Program stosowany w
+                rzeczywistym środowisku musi być stale do niego
+                adaptowany. W przeciwnym przypadku będzie
+                stopniowo coraz mniej użyteczny.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+                \textbf{Prawo wzrastającej złożoności}
+                &
+                Wraz z ewolucją
+                oprogramowania jego struktura staje się coraz
+                bardziej złożona. Pielęgnacja i upraszczanie struktury
+                wymagają dodatkowych nakładów.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
+                \textbf{Prawo samoregulacji}
+                &
+                Ewolucja oprogramowania jest
+                samoregulującym procesem o rozkładzie atrybutów
+                procesu i produktu bliskim rozkładowi normalnemu.
+                Podstawowe atrybuty procesu ewolucji pozostają stałe
+                dla każdego wydania.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
+                \textbf{Prawo organizacyjnej stabilności}
+                &
+                Tempo rozwoju
+                oprogramowania w całym jego cyklu życia jest stałe,
+                bez względu na dostępność zasobów, jeżeli podczas
+                jego pielęgnacji nie wykorzystano właściwie informacji
+                zwrotnej.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
+
+                \textbf{Prawo zachowania przyzwyczajeń}
+                &
+                W dłuższej
+                perspektywie, rozmiar kolejnych wydań systemu
+                jest statystycznie niezmienny. Przyswojenie nowych
+                funkcji systemu wymaga czasu.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
+                \textbf{Prawo ciągłego wzrostu}
+                &
+                Funkcjonalność
+                oprogramowania musi rosnąć, aby satysfakcja
+                odbiorców systemu pozostała na tym samym
+                poziomie.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
+                \textbf{Prawo spadku jakości}
+                &
+                Jakość oprogramowania spada,
+                o ile nie jest ono dostosowywane do zmian
+                zachodzących w swoim środowisku operacyjnym.
+                \\
+
+                \cmidrule(r){1-1}\cmidrule(l){2-2}
+
+
+                \textbf{Prawo przyrostowego rozwoju}
+                &
+                Procesy ewolucyjne
+                oprogramowania są wielopoziomowe, posiadają naturę
+                iteracyjną i wymagają informacji z wielu punktów
+                widzenia. Wykorzystanie informacji zwrotnej pozwala
+                osiągnąć istotną poprawę procesu ewolucji.
+                \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \textbf{Wnioski z praw Lehmana}
+    \begin{itemize}
+        \item Oprogramowanie, aby pozostało użyteczne, musi ewoluować;
+        \item Jakość oprogramowania (zdolność do ewolucji) pogarsza się z upływem czasu
+        \item Rosnąca złożoność oprogramowania w pewnym momencie znacznie utrudnia dalszy rozwój systemu
+        \item Tempo rozwoju oprogramowania jest w najlepszym przypadku stałe i nie zależy od
+        sposobu zarządzania
+    \end{itemize}
+
+    \subsubsection{Pielęgnacja oprogramowania}
+    Cztery rodzaje aktywności:
+    \begin{itemize}
+        \item \textbf{pielęgnacji doskonalącej} (ok. 50\%) - implementacja nowych wymagań
+        funkcjonalnych;
+        \item \textbf{pielęgnacji adaptacyjnej} (ok. 25\%) - dostosowywanie do zmian zachodzących w środowisku;
+        \item \textbf{pielęgnacji naprawcze} (ok. 20\%) - usuwanie błędów
+        \item \textbf{prewencyjnej} (ok. 5\%) - restrukturyzacja wewnętrzna.
+    \end{itemize}
+
+    \textbf{Model kosztowy Boehma} - $AME = 1.0 * ACT * SDT$; AME - roczna pracochłonność związana
+    z pielęgnacją [PM], ACT - względna liczba zmian [\%], SDT - pracochłonność rozwoju oprogramowania [PM].
+
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{p{.5\linewidth} p{.5\linewidth}}
+                \textbf{Czynniki wpływające na koszt pielęgnacji} & \textbf{Czynniki nie wpływające na koszt pilęgnacji} \\
+
+                \begin{itemize}
+                    \item  Dziedzina zastosowań systemu;
+                    \item Stabilność personelu pielęgnacyjnego;
+                    \item Czas życia oprogramowania;
+                    \item Stabilność sprzętu;
+                    \item Jakość kodu i dokumentacji.
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item Metoda zarządzania przedsięwzięciem;
+                    \item Dostępność zasobów.
+                \end{itemize}
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \subsection{Zarządzanie konfiguracją}
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{ p{.5\linewidth} p{.5\linewidth} }
+                \textbf{Problemy} & \textbf{Procedury} \\
+                \begin{itemize}
+                    \item różnorodność artefaktów
+                    \item równoległa praca nad fragmentami kodu
+                    \item wiele wersji artefaktów
+                    \item wersje artefaktów vs wersje produktu
+                    \item analizowanie historii
+                    \item praca nad nową wersją systemu i poprawianie starej
+                \end{itemize}
+                &
+                \begin{itemize}
+                    \item kodowanie;
+                    \item wydawanie nowej wersji;
+                    \item poprawianie defektów;
+                    \item łączenia różnych zmian.
+                \end{itemize}
+                \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \textbf{Narzędzia}
+    \begin{itemize}
+        \item CVS
+        \item Subversion
+        \item ClearCase
+        \item Git
+    \end{itemize}
+
+
+\end{document}

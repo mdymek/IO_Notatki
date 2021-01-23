@@ -1,3 +1,5 @@
+%! suppress = FileNotFound
+%! suppress = MissingLabel
 \documentclass[a4paper]{article}
 
 \usepackage{fullpage} % Package to use full page
@@ -9,7 +11,6 @@
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{booktabs}
-\usepackage{lmodern}
 \usepackage[MeX]{polski}
 \usepackage[T1]{fontenc}
 \usepackage{float}
@@ -27,44 +28,48 @@
 \begin{document}
     \maketitle
 
+
     \section{Podstawowe pojęcia}
-    \subfile{podstawowe_pojecia}
+    \subfile{subfiles/podstawowe_pojecia.tex}
 
     \section {UML}
-    \subfile{uml}
+    \subfile{subfiles/uml.tex}
 
 
     \section{Procesy wytwarzania oprogramowania}
-    \subfile{procesy}
+    \subfile{subfiles/procesy.tex}
 
 
     \section{Standardy jakości}
-    \subfile{standardy}
+    \subfile{subfiles/standardy.tex}
+
 
     \section{Zwinne procesy wytwarzania oprogramowania}
-    \subfile{zwinne}
+    \subfile{subfiles/zwinne.tex}
 
 
     \section{Wymagania}
-    \subfile{wymagania}
+    \subfile{subfiles/wymagania.tex}
+
 
     \section{Projektowanie systemu}
-    \subfile{system}
+    \subfile{subfiles/system.tex}
+
 
     \section{Projektowanie obiektów}
-    \subfile{obiekty}
+    \subfile{subfiles/obiekty.tex}
+
 
     \section{Testowanie i kontrola jakości}
-    \subfile{test}
+    \subfile{subfiles/test.tex}
 
 
     \section{Ewolucja oprogramowania i zarządzanie konfiguracją}
-    \subfile{ewolucja}
+    \subfile{subfiles/ewolucja.tex}
+
 
     \section{Ciągła integracja, oprogramowanie w chmurze}
-    \subfile{integracja}
-
-
+    \subfile{subfiles/integracja.tex}
 
 \end{document}
 
